@@ -23,7 +23,7 @@ public class Game extends com.badlogic.gdx.Game {
 	
 	@Override
 	public void dispose () {
-		this.dispose();
+		super.dispose();
 		batch.dispose();
 	}
 }

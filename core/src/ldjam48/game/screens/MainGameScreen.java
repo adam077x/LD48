@@ -4,14 +4,20 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.Game;
+import ldjam48.game.node.Node;
+import ldjam48.game.node.NodeSprite;
 
 public class MainGameScreen implements Screen {
     Texture img;
     BitmapFont font = new BitmapFont();
 
     Game game;
+
+    public Node scene;
+
     public MainGameScreen(Game game) {
         this.game = game;
     }
@@ -19,6 +25,11 @@ public class MainGameScreen implements Screen {
     @Override
     public void show() {
         img = new Texture("badlogic.jpg");
+        scene = new Node("Game Scene");
+        scene.position = new Vector2(10, 10);
+        NodeSprite nodeSprite = new NodeSprite("TestNode", img);
+        nodeSprite.position.x = 20;
+        scene.addNode(nodeSprite);
     }
 
     @Override
@@ -26,8 +37,9 @@ public class MainGameScreen implements Screen {
         ScreenUtils.clear(1, 0, 0, 1);
         game.batch.begin();
 
-        game.batch.draw(img, 0, 0);
         font.draw(game.batch, "Hello World", 300, 300);
+
+        scene.update(game.batch, delta);
 
         game.batch.end();
     }
