@@ -11,6 +11,7 @@ public class TextureManager {
     public static final Texture stone = new Texture("stone.png");
     public static final Texture player = new Texture("player.png");
     public static final Texture bedrock = new Texture("bedrock.png");
+    public static final Texture iron = new Texture("iron.png");
 
 
 
