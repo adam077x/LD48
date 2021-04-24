@@ -150,6 +150,15 @@ public class NodePlayer extends NodeSprite{
 
         camera.position.x = position.x - animationRight + animationLeft;
         camera.position.y = position.y + animationDown - animationUp;
+
+        if(camera.position.x <= 320) {
+            camera.position.x = 320;
+        }
+
+        if(camera.position.x >= 1728) {
+            camera.position.x = 1728;
+        }
+
         camera.update();
     }
 

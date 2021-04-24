@@ -16,6 +16,7 @@ public class TextureManager {
     public static final Texture drill = new Texture("drill.png");
     public static final Texture playerBase = new Texture("player_base.png");
     public static final Texture drill2 = new Texture("drill2.png");
+    public static final Texture hills = new Texture("mountains.png");
 
 
     //Player
