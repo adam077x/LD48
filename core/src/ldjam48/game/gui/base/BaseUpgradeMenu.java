@@ -19,7 +19,8 @@ public class BaseUpgradeMenu extends Gui {
 
     public boolean hidden = true;
 
-    Slot slot;
+    Slot slot1;
+    Slot slot2;
 
     public BaseUpgradeMenu() {
         super("Base Upgrading Menu");
@@ -27,14 +28,15 @@ public class BaseUpgradeMenu extends Gui {
         upgrade = new Button("upgrade", "Upgrade Drill", 128, 64, new ButtonEvent() {
             @Override
             public void onClick() {
-                if(slot.getItemInSlot() != null) {
-                    if (slot.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot.getItemInSlot().getItemAmount() >= 8) {
+                if(slot1.getItemInSlot() != null) {
+                    System.out.println(slot1.getItemInSlot().getBlockType().getBlockId());
+                    if (slot1.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot1.getItemInSlot().getItemAmount() >= 8) {
                         NodePlayer.drillLevel++;
                         NodePlayer.updateDrill();
                         //slot.setItemInSlot(null);
-                        slot.getItemInSlot().setItemAmount(slot.getItemInSlot().getItemAmount() - 8);
-                        if(slot.getItemInSlot().getItemAmount() <= 0) {
-                            slot.setItemInSlot(null);
+                        slot1.getItemInSlot().setItemAmount(slot1.getItemInSlot().getItemAmount() - 8);
+                        if(slot1.getItemInSlot().getItemAmount() <= 0) {
+                            slot1.setItemInSlot(null);
                         }
                     }
                 }
@@ -48,13 +50,13 @@ public class BaseUpgradeMenu extends Gui {
         upgradeFuelStorage = new Button("upgrade", "Upgrade fuel storage", 128, 64, new ButtonEvent() {
             @Override
             public void onClick() {
-                if(slot.getItemInSlot() != null) {
-                    if (slot.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot.getItemInSlot().getItemAmount() >= 10) {
+                if(slot2.getItemInSlot() != null) {
+                    if (slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot2.getItemInSlot().getItemAmount() >= 10) {
                         CoalStatus.maxCoalLevel += 100;
 
-                        slot.getItemInSlot().setItemAmount(slot.getItemInSlot().getItemAmount() - 10);
-                        if(slot.getItemInSlot().getItemAmount() <= 0) {
-                            slot.setItemInSlot(null);
+                        slot2.getItemInSlot().setItemAmount(slot2.getItemInSlot().getItemAmount() - 10);
+                        if(slot2.getItemInSlot().getItemAmount() <= 0) {
+                            slot2.setItemInSlot(null);
                         }
                     }
                 }
@@ -65,15 +67,15 @@ public class BaseUpgradeMenu extends Gui {
         upgradeFuelStorage.position.y = Gdx.graphics.getHeight() / 2 - 30;
         addNode(upgradeFuelStorage);
 
-        slot = new Slot("Upgrade_Table", TextureManager.inventory);
-        slot.position.x = 100;
-        slot.position.y = 300;
-        addNode(slot);
+        slot1 = new Slot("Upgrade_Table", TextureManager.inventory);
+        slot1.position.x = 100;
+        slot1.position.y = 300;
+        addNode(slot1);
 
-        slot = new Slot("Upgrade_Table", TextureManager.inventory);
-        slot.position.x = Gdx.graphics.getWidth() / 2 - 220;
-        slot.position.y = Gdx.graphics.getHeight() / 2 - 15;
-        addNode(slot);
+        slot2 = new Slot("Upgrade_Table2", TextureManager.inventory);
+        slot2.position.x = Gdx.graphics.getWidth() / 2 - 220;
+        slot2.position.y = Gdx.graphics.getHeight() / 2 - 15;
+        addNode(slot2);
     }
 
     @Override
@@ -82,8 +84,8 @@ public class BaseUpgradeMenu extends Gui {
 
         batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
 
-        if(slot.getItemInSlot() != null) {
-            System.out.println(slot.getItemInSlot().getBlockType().getBlockId());
+        if(slot1.getItemInSlot() != null) {
+            System.out.println(slot1.getItemInSlot().getBlockType().getBlockId());
         }
 
         super.update(batch, delta);

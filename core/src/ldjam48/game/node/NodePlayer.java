@@ -172,28 +172,28 @@ public class NodePlayer extends NodeSprite{
 
 
         if(animationDown > 0) {
-            animationDown -= delta * 100;
+            animationDown -= delta * (50 + (drillLevel * 50));
         }
         else {
             animationDown = 0;
         }
 
         if(animationUp > 0) {
-            animationUp -= delta * 100;
+            animationUp -= delta * (50 + (drillLevel * 50));
         }
         else {
             animationUp = 0;
         }
 
         if(animationLeft > 0) {
-            animationLeft -= delta * 100;
+            animationLeft -= delta * (50 + (drillLevel * 50));
         }
         else {
             animationLeft = 0;
         }
 
         if(animationRight > 0) {
-            animationRight -= delta * 100;
+            animationRight -= delta * (50 + (drillLevel * 50));
         }
         else {
             animationRight = 0;
