@@ -16,6 +16,7 @@ import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.base.BaseMenu;
 import ldjam48.game.gui.base.BaseUpgradeMenu;
+import ldjam48.game.gui.base.StorageMenu;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.items.Item;
@@ -27,9 +28,10 @@ public class NodePlayer extends NodeSprite{
     private NodeTilemap nodeTilemap;
     private NodeBase nodeBase;
     private BaseMenu baseMenu;
+    private StorageMenu storageMenu;
     private BaseUpgradeMenu baseUpgradeMenu;
     private NodeUpgradeBase nodeUpgradeBase;
-
+    private NodeStorage nodeStorage;
     private static Texture drill = TextureManager.drill;
     private static Sprite drillSprite = new Sprite(drill);
 
@@ -54,11 +56,20 @@ public class NodePlayer extends NodeSprite{
         //super.sprite.setOrigin(32/2, 32/2);
         nodeTilemap = (NodeTilemap)MainGameScreen.scene.findNode("Tilemap");
         nodeBase = (NodeBase)MainGameScreen.scene.findNode("Base");
+        nodeBase.position.y = 191;
         baseMenu = (BaseMenu) MainGameScreen.gui.addNode(new BaseMenu());
+        storageMenu = (StorageMenu) MainGameScreen.gui.addNode(new StorageMenu());
+        //TODO: move to MainGameScene
         baseUpgradeMenu = (BaseUpgradeMenu) MainGameScreen.gui.addNode(new BaseUpgradeMenu());
         nodeUpgradeBase = (NodeUpgradeBase) MainGameScreen.scene.addNode(new NodeUpgradeBase());
-        nodeUpgradeBase.position.y = 190;
+        nodeStorage = (NodeStorage) MainGameScreen.scene.addNode(new NodeStorage());
+
+
+        nodeUpgradeBase.position.y = 191;
         nodeUpgradeBase.position.x = 190;
+
+        nodeStorage.position.y = 191;
+        nodeStorage.position.x = 425;
 
         updateDrill();
     }
@@ -200,6 +211,7 @@ public class NodePlayer extends NodeSprite{
         }
 
         showBaseMenu();
+        showStorageMenu();
         showBaseUpgradeMenu();
 
         camera.position.x = position.x - animationRight + animationLeft;
@@ -214,6 +226,17 @@ public class NodePlayer extends NodeSprite{
         }
 
         camera.update();
+    }
+
+
+
+    private void showStorageMenu() {
+        if(nodeStorage.getRectangle().overlaps(getReactangle())) {
+            storageMenu.hidden = false;
+        }
+        else {
+            storageMenu.hidden = true;
+        }
     }
 
     private void showBaseMenu() {

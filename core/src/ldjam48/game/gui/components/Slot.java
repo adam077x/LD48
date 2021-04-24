@@ -64,14 +64,23 @@ public class Slot extends GuiComponent {
 
     public void onClick()
     {
-        System.out.println("Clicked");
         if(NodeClickRender.itemOnMouse != null)
         {
             if(itemInSlot != null)
-                return;
-
-            itemInSlot = NodeClickRender.itemOnMouse;
-            NodeClickRender.itemOnMouse = null;
+            {
+                if(itemInSlot.getBlockType() == NodeClickRender.itemOnMouse.getBlockType())
+                {
+                    if(itemInSlot.getItemAmount() + NodeClickRender.itemOnMouse.getItemAmount() <= 999)
+                    {
+                        itemInSlot.setItemAmount(itemInSlot.getItemAmount() + NodeClickRender.itemOnMouse.getItemAmount());
+                        NodeClickRender.itemOnMouse = null;
+                        return;
+                    }
+                }
+            }else {
+                itemInSlot = NodeClickRender.itemOnMouse;
+                NodeClickRender.itemOnMouse = null;
+            }
         }else
         {
             if(itemInSlot == null)

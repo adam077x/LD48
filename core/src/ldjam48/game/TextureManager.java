@@ -35,6 +35,11 @@ public class TextureManager {
     public static final Texture drillGold1 = new Texture("drill_gold.png");
     public static final Texture drillGold2 = new Texture("drill_gold2.png");
 
+    //Buildings
+    public static final Texture storage = new Texture("storage.png");
+
+
+
     //Player
     public static final Texture player_rotated = new Texture("player_rotated.png");
 
