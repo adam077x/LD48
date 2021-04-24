@@ -11,9 +11,13 @@ import ldjam48.game.Game;
 import ldjam48.game.gui.Inventory;
 import ldjam48.game.node.*;
 
+import java.util.Random;
+
 public class MainGameScreen implements Screen {
     Texture img;
     BitmapFont font = new BitmapFont();
+
+    public Random random;
 
     Game game;
 
@@ -30,6 +34,7 @@ public class MainGameScreen implements Screen {
     private static MainGameScreen instance;
     public MainGameScreen(Game game) {
         this.game = game;
+        random = new Random();
         instance = this;
     }
 
@@ -51,6 +56,7 @@ public class MainGameScreen implements Screen {
 
         scene.addNode(nodeBase);
 
+
         nodePlayer = new NodePlayer();
         nodePlayer.position.y = 190;
         nodePlayer.position.x = 16*32;
@@ -58,6 +64,7 @@ public class MainGameScreen implements Screen {
         scene.addNode(nodePlayer);
 
         gui.addNode(inventory = new Inventory());
+        gui.addNode(new NodeClickRender());
     }
 
     @Override

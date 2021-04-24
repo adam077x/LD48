@@ -9,7 +9,7 @@ public enum BlockType {
     Dirt(1, "Dirt", new BlockMeta(true, false, TextureManager.dirt)),
     Grass(2, "Grass", new BlockMeta(true, false, TextureManager.grass)),
     Stone(3, "Stone", new BlockMeta(true, false, TextureManager.stone)),
-    Coal(4,"Coal", new BlockMeta(true, false, TextureManager.img)),
+    Coal(4,"Coal", new BlockMeta(true, false, TextureManager.coal)),
     Bedrock(5, "Bedrock", new BlockMeta(true, false, TextureManager.bedrock)),
     Iron(6,"Iron", new BlockMeta(true, false, TextureManager.iron));
 
