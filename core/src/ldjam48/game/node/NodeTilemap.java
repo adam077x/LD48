@@ -73,6 +73,7 @@ public class NodeTilemap extends Node {
 
     public int getTileByGlobalPosition(Vector2 position) {
         if((int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize)) >= arrayMap.length) return 0;
+        if((int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize)) < 0) return 0;
         return arrayMap[(int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize))];
     }
 

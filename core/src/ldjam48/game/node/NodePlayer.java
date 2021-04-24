@@ -98,6 +98,9 @@ public class NodePlayer extends NodeSprite{
             mine(position.x, position.y );
         }
         else if(Gdx.input.isKeyPressed(Input.Keys.S) && animationDown <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
+            int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y - 32));
+            if(blockId == BlockType.Bedrock.getBlockId()) return;
+
             position.y -= 32;
             drillSprite.setFlip(false, false);
             face = Face.DOWN;
