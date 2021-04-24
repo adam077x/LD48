@@ -29,31 +29,39 @@ public class NodePlayer extends NodeSprite{
         nodeTilemap = MainGameScreen.tilemap;
     }
 
+    public float animateY = 0;
+
     @Override
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.A)) {
+        if(Gdx.input.isKeyJustPressed(Input.Keys.A) && position.x > 0) {
             position.x -= 32;
             mine(position.x, position.y );
         }
-        else if(Gdx.input.isKeyJustPressed(Input.Keys.D)) {
-            position.x += 32;
+        else if(Gdx.input.isKeyJustPressed(Input.Keys.D) && position.x < (nodeTilemap.width-1) * nodeTilemap.tileSize) {
+            position.x += 256;
             mine(position.x, position.y );
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.S)) {
-            position.y -= 32;
-            mine(position.x, position.y + 16);
+            //position.y -= 32;
+            animateY = -32;
+            mine(position.x, position.y - 16);
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.W)) {
             if(position.y >= 190) return;
             position.y += 32;
-            mine(position.x, position.y );
+            mine(position.x, position.y + 32);
         }
+
+        if(animateY < 0) {
+            position.y -= 128 * delta;
+            animateY += 128 * delta;
+        }
+
         camera.position.x = position.x;
         camera.position.y = position.y;
         camera.update();
-
     }
 
     public void mine(float x, float y)
@@ -65,6 +73,5 @@ public class NodePlayer extends NodeSprite{
         Item item = new Item(blockType, 1);
         MainGameScreen.getInstance().getInventory().addItem(item);
         nodeTilemap.setTileByGlobalPosition(new Vector2(x, y), 0);
-
     }
 }
