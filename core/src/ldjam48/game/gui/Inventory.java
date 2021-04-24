@@ -35,7 +35,6 @@ public class Inventory extends Node {
     public Inventory() {
         super("Inventory");
         texture = TextureManager.inventory;
-        addItem(new Item(BlockType.Dirt, 30));
     }
 
     public void addItem(Item item)
