@@ -29,8 +29,10 @@ public class MainGameScreen implements Screen {
 
     private SpriteBatch guiBatch;
 
+    private static MainGameScreen instance;
     public MainGameScreen(Game game) {
         this.game = game;
+        instance = this;
     }
 
     @Override
@@ -73,6 +75,7 @@ public class MainGameScreen implements Screen {
         guiBatch.end();
     }
 
+
     @Override
     public void resize(int width, int height) {
 
@@ -97,6 +100,10 @@ public class MainGameScreen implements Screen {
     public void dispose() {
         img.dispose();
         font.dispose();
+    }
+
+    public static MainGameScreen getInstance() {
+        return instance;
     }
 
     public Inventory getInventory() {

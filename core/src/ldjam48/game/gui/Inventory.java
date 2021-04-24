@@ -29,7 +29,7 @@ public class Inventory extends Node {
     private BitmapFont font = new BitmapFont();
 
     private HashMap<Integer, Item> inventory = new HashMap<>();
-    private HashMap<Item, Integer> itemBackwardMap = new HashMap<>();
+    private HashMap<BlockType, Integer> itemBackwardMap = new HashMap<>();
 
     private Texture texture;
     public Inventory() {
@@ -40,9 +40,9 @@ public class Inventory extends Node {
 
     public void addItem(Item item)
     {
-        if(itemBackwardMap.containsKey(item))
+        if(itemBackwardMap.containsKey(item.getBlockType()))
         {
-            int itemId = itemBackwardMap.get(item);
+            int itemId = itemBackwardMap.get(item.getBlockType());
             Item itemInMap = inventory.get(itemId);
 
             itemInMap.setItemAmount(itemInMap.getItemAmount() + item.getItemAmount());
@@ -50,7 +50,7 @@ public class Inventory extends Node {
         {
             int id = inventory.size();
             inventory.put(id, item);
-            itemBackwardMap.put(item, id);
+            itemBackwardMap.put(item.getBlockType(), id);
         }
     }
     @Override
@@ -63,7 +63,7 @@ public class Inventory extends Node {
 
             batch.draw(TextureManager.inventory, Gdx.graphics.getWidth() -tileSize, 150+(tileSize*i)+ 5);
 
-            batch.draw(texture, Gdx.graphics.getWidth()-tileSize+8,150+(tileSize*1) - 16);
+            batch.draw(texture, Gdx.graphics.getWidth()-tileSize+8,150+(tileSize*(i+1)) - 16);
 
             batch.setColor(item.getItemAmount() == 0 ? Color.RED : Color.BLACK);
             font.draw(batch, item.getItemAmount() + "", Gdx.graphics.getWidth() - tileSize, 160 + (tileSize*i) + 5);

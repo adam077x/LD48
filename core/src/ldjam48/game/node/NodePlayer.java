@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import jdk.jfr.internal.tool.Main;
 import ldjam48.game.TextureManager;
+import ldjam48.game.blocks.BlockType;
+import ldjam48.game.items.Item;
 import ldjam48.game.screens.MainGameScreen;
 
 import javax.xml.bind.util.ValidationEventCollector;
@@ -48,14 +50,21 @@ public class NodePlayer extends NodeSprite{
             position.y += 32;
             mine(position.x, position.y );
         }
-
         camera.position.x = position.x;
         camera.position.y = position.y;
         camera.update();
+
     }
 
     public void mine(float x, float y)
     {
+        int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(x, y));
+        if(blockId == 0)
+            return;
+        BlockType blockType = BlockType.values()[blockId];
+        Item item = new Item(blockType, 1);
+        MainGameScreen.getInstance().getInventory().addItem(item);
         nodeTilemap.setTileByGlobalPosition(new Vector2(x, y), 0);
+
     }
 }
