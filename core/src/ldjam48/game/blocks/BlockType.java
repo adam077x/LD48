@@ -4,6 +4,8 @@ import jdk.nashorn.internal.ir.Block;
 import ldjam48.game.TextureManager;
 
 public enum BlockType {
+
+    Air(0, "Air", new BlockMeta(false, false, TextureManager.blank)),
     Dirt(1, "Dirt", new BlockMeta(true, false, TextureManager.dirt)),
     Grass(2, "Grass", new BlockMeta(true, false, TextureManager.grass)),
     Stone(3, "Stone", new BlockMeta(true, false, TextureManager.stone)),
