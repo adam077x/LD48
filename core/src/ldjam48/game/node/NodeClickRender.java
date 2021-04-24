@@ -14,7 +14,7 @@ public class NodeClickRender extends Node {
     public static Item itemOnMouse = null;
     public NodeClickRender() {
         super("ClickRender");
-        itemOnMouse = new Item(BlockType.Dirt, 5);
+      //  itemOnMouse = new Item(BlockType.Dirt, 5);
     }
 
     @Override

@@ -35,6 +35,23 @@ public class Slot extends GuiComponent {
             }
         }
 
+        if(Gdx.input.getX() > position.x && Gdx.input.getX() < (position.x + width))
+        {
+            if((Gdx.graphics.getHeight() - Gdx.input.getY()) > position.y && (Gdx.graphics.getHeight() - Gdx.input.getY()) < (position.y + height))
+            {
+                if(itemInSlot != null)
+                {
+                    Hint.show(itemInSlot.getBlockType().name());
+                }else
+                {
+                    Hint.hide();
+                }
+            }
+        }else
+        {
+            Hint.hide();
+        }
+
         batch.draw(slotTexture, position.x, position.y, width, height);
         batch.draw(itemInSlot != null? itemInSlot.getBlockType().getBlockMeta().getTexture() : TextureManager.blank, position.x +8, position.y + 8);
 
