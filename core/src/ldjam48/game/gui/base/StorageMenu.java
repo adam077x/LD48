@@ -2,6 +2,8 @@ package ldjam48.game.gui.base;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.TextureManager;
@@ -14,9 +16,9 @@ import ldjam48.game.gui.statusbars.CoalStatus;
 
 public class StorageMenu extends Gui {
     public static boolean hidden = true;
-
+    private BitmapFont font = new BitmapFont();
     public StorageMenu() {
-        super("Storage Menu");
+        super("Storage");
 
         int x = Gdx.graphics.getWidth() / 2 - 250;
         int y = Gdx.graphics.getHeight() / 2 - 125;
@@ -44,6 +46,13 @@ public class StorageMenu extends Gui {
     @Override
     public void update(SpriteBatch batch, float delta) {
         if(hidden) return;
+
+        GlyphLayout glyphLayout = new GlyphLayout();
+
+        glyphLayout.setText(font, name);
+
+        font.draw(batch,name,Gdx.graphics.getWidth() / 2  - glyphLayout.width/2, Gdx.graphics.getHeight() / 2 - 125 + 50+250);
+
 
         batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
         batch.setColor(Color.WHITE);

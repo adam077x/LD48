@@ -1,6 +1,8 @@
 package ldjam48.game.gui.base;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
@@ -19,11 +21,13 @@ public class BaseUpgradeMenu extends Gui {
 
     public boolean hidden = true;
 
-    Slot slot1;
-    Slot slot2;
+    SlotNamed slot1;
+    SlotNamed slot2;
+
+    private BitmapFont font = new BitmapFont();
 
     public BaseUpgradeMenu() {
-        super("Base Upgrading Menu");
+        super("Upgrade Garage");
 
         upgrade = new Button("upgrade", "Upgrade Drill", 128, 64, new ButtonEvent() {
             @Override
@@ -67,12 +71,12 @@ public class BaseUpgradeMenu extends Gui {
         upgradeFuelStorage.position.y = Gdx.graphics.getHeight() / 2 - 30;
         addNode(upgradeFuelStorage);
 
-        slot1 = new Slot("Upgrade_Table", TextureManager.inventory);
+        slot1 = new SlotNamed(0, "Irons (8x)");
         slot1.position.x = 100;
         slot1.position.y = 300;
         addNode(slot1);
 
-        slot2 = new Slot("Upgrade_Table2", TextureManager.inventory);
+        slot2 = new SlotNamed(1, "Irons (10x)");
         slot2.position.x = Gdx.graphics.getWidth() / 2 - 220;
         slot2.position.y = Gdx.graphics.getHeight() / 2 - 15;
         addNode(slot2);
@@ -82,6 +86,11 @@ public class BaseUpgradeMenu extends Gui {
     public void update(SpriteBatch batch, float delta) {
         if(hidden) return;
 
+        GlyphLayout glyphLayout = new GlyphLayout();
+
+        glyphLayout.setText(font, name);
+
+        font.draw(batch,name,Gdx.graphics.getWidth() / 2  - glyphLayout.width/2, Gdx.graphics.getHeight() / 2 - 125 + 50+250);
         batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
 
         if(slot1.getItemInSlot() != null) {

@@ -8,11 +8,11 @@ import ldjam48.game.gui.components.NamedSlot;
 import ldjam48.game.gui.components.Slot;
 import ldjam48.game.node.NodeClickRender;
 
-public class BaseSlot extends Slot implements NamedSlot {
+public class SlotNamed extends Slot implements NamedSlot {
     int id = 0;
 
     private String name;
-    public BaseSlot(int id, String name) {
+    public SlotNamed(int id, String name) {
         super("Base_" + id, TextureManager.inventory);
         this.id = id;
         this.name = name;
