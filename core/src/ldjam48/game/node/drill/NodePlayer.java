@@ -1,4 +1,4 @@
-package ldjam48.game.node;
+package ldjam48.game.node.drill;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.compression.lzma.Base;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
@@ -20,9 +21,12 @@ import ldjam48.game.gui.base.StorageMenu;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.items.Item;
+import ldjam48.game.node.*;
 import ldjam48.game.screens.MainGameScreen;
 
-public class NodePlayer extends NodeSprite{
+import java.util.ArrayList;
+
+public class NodePlayer extends NodeSprite {
     public float force;
     public OrthographicCamera camera;
     private NodeTilemap nodeTilemap;
@@ -32,11 +36,12 @@ public class NodePlayer extends NodeSprite{
     private BaseUpgradeMenu baseUpgradeMenu;
     private NodeUpgradeBase nodeUpgradeBase;
     private NodeStorage nodeStorage;
-    private static Texture drill = TextureManager.drill;
-    private static Sprite drillSprite = new Sprite(drill);
 
-    private static Texture drill2 = TextureManager.drill2;
-    private static Sprite drillSprite2 = new Sprite(drill2);
+    private static Sprite drillSprite;
+
+    private static Sprite drillSprite2;
+
+    private DrillSprites[] drillSprites;
 
     public Rectangle getReactangle() {
         return new Rectangle(position.x, position.y, img.getWidth(), img.getHeight());
@@ -71,7 +76,37 @@ public class NodePlayer extends NodeSprite{
         nodeStorage.position.y = 191;
         nodeStorage.position.x = 425;
 
-        updateDrill();
+        drillSprites = new DrillSprites[4];
+
+        int lastRow = 0;
+
+        //Load animation
+
+
+
+        for(int i = 0; i < 4; i++)
+        {
+            DrillSprites drillSprites = new DrillSprites();
+            drillSprites.upSprites = new ArrayList<>();
+            drillSprites.sideSprites = new ArrayList<>();
+
+            for(int j = 0; j < 6; j ++)
+            {
+                drillSprites.upSprites.add(new Sprite(TextureManager.drillRegion[lastRow][j]));
+                drillSprites.sideSprites.add(new Sprite(TextureManager.drillRegion[lastRow+1][j]));
+            }
+            lastRow += 2;
+            this.drillSprites[i] = drillSprites;
+
+        }
+
+        drillSprite = new Sprite(drillSprites[0].upSprites.get(0));
+        drillSprite2 = new Sprite(drillSprites[0].sideSprites.get(0));
+
+
+
+
+
     }
 
     private Face face;
@@ -86,28 +121,36 @@ public class NodePlayer extends NodeSprite{
         return false;
     }
 
-    public static void updateDrill() {
-        if(drillLevel == 1) {
-            drillSprite = new Sprite(TextureManager.drillWooden1);
-            drillSprite2 = new Sprite(TextureManager.drillWooden2);
-        }
-        else if(drillLevel == 2) {
-            drillSprite = new Sprite(TextureManager.drillIron1);
-            drillSprite2 = new Sprite(TextureManager.drillIron2);
-        }
-        else if(drillLevel == 3) {
-            drillSprite = new Sprite(TextureManager.drillGold1);
-            drillSprite2 = new Sprite(TextureManager.drillGold2);
-        }
-        else if(drillLevel == 3) {
-            drillSprite = new Sprite(TextureManager.drillDiamond1);
-            drillSprite2 = new Sprite(TextureManager.drillDiamond2);
-        }
-    }
+
 
     private BitmapFont font = new BitmapFont();
+
+    long current = System.currentTimeMillis();
+
+    int sprite = 0;
     @Override
     public void update(SpriteBatch batch, float delta) {
+        if(current + 400 + delta >= System.currentTimeMillis())
+        {
+
+            current = System.currentTimeMillis();
+            DrillSprites drillSprite = drillSprites[drillLevel-1];
+            if(drillSprite == null)
+                return;
+
+            Sprite ds1 = (drillSprite.upSprites.get(sprite));
+            Sprite ds2 = (drillSprite.sideSprites.get(sprite));
+
+            ds1.setFlip(this.drillSprite.isFlipX(), this.drillSprite.isFlipY());
+            ds2.setFlip(drillSprite2.isFlipX(), drillSprite2.isFlipY());
+
+            this.drillSprite = ds1;
+            this.drillSprite2 = ds2;
+            if(sprite + 1 > 5)
+                sprite = 0;
+            else
+                sprite ++;
+        }
         //super.update(batch, delta);
         batch.draw(img, position.x + animationLeft - animationRight, position.y + animationDown - animationUp, 32, 32);
 
@@ -132,6 +175,7 @@ public class NodePlayer extends NodeSprite{
                 if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
 
                 position.x -= 32;
+
                 drillSprite2.setFlip(true, false);
                 face = Face.LEFT;
                 animationLeft += 32;

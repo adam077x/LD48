@@ -9,11 +9,8 @@ import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.Gui;
 import ldjam48.game.gui.components.Button;
 import ldjam48.game.gui.components.ButtonEvent;
-import ldjam48.game.gui.components.Slot;
 import ldjam48.game.gui.statusbars.CoalStatus;
-import ldjam48.game.node.Node;
-import ldjam48.game.node.NodePlayer;
-import ldjam48.game.node.NodeUpgradeBase;
+import ldjam48.game.node.drill.NodePlayer;
 
 public class BaseUpgradeMenu extends Gui {
     private Button upgrade;
@@ -36,7 +33,6 @@ public class BaseUpgradeMenu extends Gui {
                     System.out.println(slot1.getItemInSlot().getBlockType().getBlockId());
                     if (slot1.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot1.getItemInSlot().getItemAmount() >= 8) {
                         NodePlayer.drillLevel++;
-                        NodePlayer.updateDrill();
                         //slot.setItemInSlot(null);
                         slot1.getItemInSlot().setItemAmount(slot1.getItemInSlot().getItemAmount() - 8);
                         if(slot1.getItemInSlot().getItemAmount() <= 0) {
