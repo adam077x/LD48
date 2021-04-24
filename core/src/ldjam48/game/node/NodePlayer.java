@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.compression.lzma.Base;
@@ -29,11 +30,11 @@ public class NodePlayer extends NodeSprite{
     private BaseUpgradeMenu baseUpgradeMenu;
     private NodeUpgradeBase nodeUpgradeBase;
 
-    private Texture drill = TextureManager.drill;
-    private Sprite drillSprite = new Sprite(drill);
+    private static Texture drill = TextureManager.drill;
+    private static Sprite drillSprite = new Sprite(drill);
 
-    private Texture drill2 = TextureManager.drill2;
-    private Sprite drillSprite2 = new Sprite(drill2);
+    private static Texture drill2 = TextureManager.drill2;
+    private static Sprite drillSprite2 = new Sprite(drill2);
 
     public Rectangle getReactangle() {
         return new Rectangle(position.x, position.y, img.getWidth(), img.getHeight());
@@ -59,6 +60,7 @@ public class NodePlayer extends NodeSprite{
         nodeUpgradeBase.position.y = 190;
         nodeUpgradeBase.position.x = 190;
 
+        updateDrill();
     }
 
     private Face face;
@@ -71,6 +73,25 @@ public class NodePlayer extends NodeSprite{
     private boolean isAnimationRunning() {
         if(animationDown > 0 || animationUp > 0 || animationLeft > 0 || animationRight > 0) return true;
         return false;
+    }
+
+    public static void updateDrill() {
+        if(drillLevel == 1) {
+            drillSprite = new Sprite(TextureManager.drillWooden1);
+            drillSprite2 = new Sprite(TextureManager.drillWooden2);
+        }
+        else if(drillLevel == 2) {
+            drillSprite = new Sprite(TextureManager.drillIron1);
+            drillSprite2 = new Sprite(TextureManager.drillIron2);
+        }
+        else if(drillLevel == 3) {
+            drillSprite = new Sprite(TextureManager.drillGold1);
+            drillSprite2 = new Sprite(TextureManager.drillGold2);
+        }
+        else if(drillLevel == 3) {
+            drillSprite = new Sprite(TextureManager.drillDiamond1);
+            drillSprite2 = new Sprite(TextureManager.drillDiamond2);
+        }
     }
 
     private BitmapFont font = new BitmapFont();

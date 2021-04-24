@@ -35,7 +35,7 @@ public class Button extends GuiComponent {
 
     @Override
     public void update(SpriteBatch batch, float delta) {
-        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        if(Gdx.input.isButtonJustPressed(Input.Buttons.LEFT))
         {
             if(Gdx.input.getX() > position.x && Gdx.input.getX() < (position.x + width))
             {
