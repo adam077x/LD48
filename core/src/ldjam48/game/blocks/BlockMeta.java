@@ -9,13 +9,26 @@ public class BlockMeta {
     private boolean isBackground;
     private Texture texture;
     private int hardness;
-    public HashMap<Object, Object> customMetaValues = new HashMap<>();
+    private HashMap<Object, Object> customMetaValues = new HashMap<>();
 
     public BlockMeta(boolean isCollidable, boolean isBackground, Texture texture, int hardness) {
         this.isCollidable = isCollidable;
         this.isBackground = isBackground;
         this.texture = texture;
         this.hardness = hardness;
+    }
+    public BlockMeta addCustomMeta(Object o, Object o2)
+    {
+        customMetaValues.put(o, o2);
+        return this;
+    }
+    public boolean hasMeta(Object o)
+    {
+        return customMetaValues.containsKey(o);
+    }
+    public Object getMeta(Object o)
+    {
+        return customMetaValues.getOrDefault(o, null);
     }
 
     public Texture getTexture() {

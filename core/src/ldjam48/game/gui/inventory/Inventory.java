@@ -49,6 +49,12 @@ public class Inventory extends Gui {
 
     public void addItem(Item item)
     {
+        if(item.getBlockType().getBlockMeta().hasMeta("drop"))
+        {
+            int drop = (int) item.getBlockType().getBlockMeta().getMeta("drop");
+            BlockType blockType = BlockType.values()[drop];
+            item.setBlockType(blockType);
+        }
         for(InventorySlot slot : slots)
         {
             if(slot.canAdd(item))
