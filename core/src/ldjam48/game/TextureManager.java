@@ -34,4 +34,9 @@ public class TextureManager {
     public static final Texture backgroundGui = new Texture("background_gui.png");
     public static final Texture arrow = new Texture("arrow_pointing.png");
     public static final Texture blank = new Texture("blank.png");
+
+    //Blank
+
+    public static final Texture blankWhite = new Texture("blank_white.png");
+
 }

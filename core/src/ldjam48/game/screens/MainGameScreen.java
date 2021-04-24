@@ -9,7 +9,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.Game;
 import ldjam48.game.gui.components.Hint;
+import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.inventory.Inventory;
+import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.node.*;
 
 import java.util.Random;
@@ -78,7 +80,10 @@ public class MainGameScreen implements Screen {
 
         gui.addNode(inventory = new Inventory());
         gui.addNode(new NodeClickRender());
+
+        gui.addNode(new CoalStatus());
         gui.addNode(new Hint()) ;
+        gui.addNode(new GameOver());
     }
 
     @Override

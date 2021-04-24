@@ -2,15 +2,20 @@ package ldjam48.game.node;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.base.BaseMenu;
+import ldjam48.game.gui.game.GameOver;
+import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.items.Item;
 import ldjam48.game.screens.MainGameScreen;
 
@@ -59,6 +64,7 @@ public class NodePlayer extends NodeSprite{
         return false;
     }
 
+    private BitmapFont font = new BitmapFont();
     @Override
     public void update(SpriteBatch batch, float delta) {
         //super.update(batch, delta);
@@ -76,50 +82,53 @@ public class NodePlayer extends NodeSprite{
         else {
             batch.draw(drillSprite2, position.x + 32 - animationRight, position.y, 32, 32);
         }
+        if(CoalStatus.coalLevel != 0)
+        {
+            if(Gdx.input.isKeyPressed(Input.Keys.A) && position.x > 0 && !isAnimationRunning()) {
+                position.x -= 32;
+                drillSprite2.setFlip(true, false);
+                face = Face.LEFT;
+                animationLeft += 32;
+                animationRight = 0;
+                animationDown = 0;
+                animationRight = 0;
+                mine(position.x, position.y );
+            }
+            else if(Gdx.input.isKeyPressed(Input.Keys.D) && position.x < (nodeTilemap.width-1) * nodeTilemap.tileSize && animationRight <= 0 && !isAnimationRunning()) {
+                position.x += 32;
+                drillSprite2.setFlip(false, false);
+                face = Face.RIGHT;
+                animationRight += 32;
+                animationLeft = 0;
+                animationDown = 0;
+                animationLeft = 0;
+                mine(position.x, position.y );
+            }
+            else if(Gdx.input.isKeyPressed(Input.Keys.S) && animationDown <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
+                int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y - 32));
+                if(blockId == BlockType.Bedrock.getBlockId()) return;
 
-        if(Gdx.input.isKeyPressed(Input.Keys.A) && position.x > 0 && !isAnimationRunning()) {
-            position.x -= 32;
-            drillSprite2.setFlip(true, false);
-            face = Face.LEFT;
-            animationLeft += 32;
-            animationRight = 0;
-            animationDown = 0;
-            animationRight = 0;
-            mine(position.x, position.y );
+                position.y -= 32;
+                drillSprite.setFlip(false, false);
+                face = Face.DOWN;
+                animationDown += 32;
+                animationUp = 0;
+                animationRight = 0;
+                animationLeft = 0;
+                mine(position.x, position.y);
+            }
+            else if(Gdx.input.isKeyPressed(Input.Keys.W) && animationUp <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
+                position.y += 32;
+                drillSprite.setFlip(false, true);
+                animationUp += 32;
+                animationDown = 0;
+                animationRight = 0;
+                animationLeft = 0;
+                face = Face.UP;
+                mine(position.x, position.y);
+            }
         }
-        else if(Gdx.input.isKeyPressed(Input.Keys.D) && position.x < (nodeTilemap.width-1) * nodeTilemap.tileSize && animationRight <= 0 && !isAnimationRunning()) {
-            position.x += 32;
-            drillSprite2.setFlip(false, false);
-            face = Face.RIGHT;
-            animationRight += 32;
-            animationLeft = 0;
-            animationDown = 0;
-            animationLeft = 0;
-            mine(position.x, position.y );
-        }
-        else if(Gdx.input.isKeyPressed(Input.Keys.S) && animationDown <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
-            int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y - 32));
-            if(blockId == BlockType.Bedrock.getBlockId()) return;
 
-            position.y -= 32;
-            drillSprite.setFlip(false, false);
-            face = Face.DOWN;
-            animationDown += 32;
-            animationUp = 0;
-            animationRight = 0;
-            animationLeft = 0;
-            mine(position.x, position.y);
-        }
-        else if(Gdx.input.isKeyPressed(Input.Keys.W) && animationUp <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
-            position.y += 32;
-            drillSprite.setFlip(false, true);
-            animationUp += 32;
-            animationDown = 0;
-            animationRight = 0;
-            animationLeft = 0;
-            face = Face.UP;
-            mine(position.x, position.y);
-        }
 
         if(animationDown > 0) {
             animationDown -= delta * 100;
@@ -177,10 +186,20 @@ public class NodePlayer extends NodeSprite{
     public void mine(float x, float y)
     {
         int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(x, y));
+        CoalStatus.coalLevel -- ;
         if(blockId == 0)
             return;
         else if(blockId == BlockType.Bedrock.getBlockId())
             return;
+        if(CoalStatus.coalLevel == 0)
+        {
+            GameOver.hidden = false;
+            return;
+        }
+
+
+
+
         BlockType blockType = BlockType.values()[blockId];
         Item item = new Item(blockType, 1);
         MainGameScreen.getInstance().getInventory().addItem(item);

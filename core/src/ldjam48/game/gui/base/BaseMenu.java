@@ -14,7 +14,7 @@ import ldjam48.game.items.Item;
 import ldjam48.game.node.Node;
 
 public class BaseMenu extends Gui {
-    public boolean hidden = true;
+    public static boolean hidden = true;
 
     public BaseMenu() {
         super("Base Menu");
@@ -29,6 +29,10 @@ public class BaseMenu extends Gui {
         addNode(baseSlot);
         addNode(baseSlot2);
 
+    }
+
+    public static boolean isHidden() {
+        return hidden;
     }
 
     @Override
