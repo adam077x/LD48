@@ -37,6 +37,9 @@ public class MainGameScreen implements Screen {
     private SpriteBatch guiBatch;
     private SpriteBatch backgroundBatch = new SpriteBatch();
 
+    public static boolean hiddenMenuHint = true;
+    public static boolean upgradeDrill = false;
+
     private static MainGameScreen instance;
     public MainGameScreen(Game game) {
         this.game = game;
@@ -73,7 +76,7 @@ public class MainGameScreen implements Screen {
         scene.addNode(nodeBase);
 
         nodePlayer = new NodePlayer();
-        nodePlayer.position.y = 190;
+        nodePlayer.position.y = 192;
         nodePlayer.position.x = 16*32;
 
         scene.addNode(nodePlayer);
@@ -106,6 +109,8 @@ public class MainGameScreen implements Screen {
         guiBatch.begin();
 
         gui.update(guiBatch, delta);
+        if(hiddenMenuHint) font.draw(guiBatch, "Press E to open menu", 100, 100);
+        if(upgradeDrill) font.draw(guiBatch, "You need to upgrade your drill", 100, 100);
 
         guiBatch.end();
     }
@@ -143,5 +148,9 @@ public class MainGameScreen implements Screen {
 
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public SpriteBatch getGuiBatch() {
+        return guiBatch;
     }
 }

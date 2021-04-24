@@ -11,6 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.Gui;
+import ldjam48.game.gui.trashbin.TrashSlot;
 import ldjam48.game.items.Item;
 import ldjam48.game.node.Node;
 
@@ -45,6 +46,10 @@ public class Inventory extends Gui {
             slots.add(inventorySlot);
             this.addNode(inventorySlot);
         }
+
+        TrashSlot trashSlot = (TrashSlot)this.addNode(new TrashSlot("Trash", TextureManager.inventory));
+        trashSlot.position.y = 0;
+        trashSlot.position.x = Gdx.graphics.getWidth() - tileSize;
     }
 
     public void addItem(Item item)

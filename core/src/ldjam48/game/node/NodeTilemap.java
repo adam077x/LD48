@@ -1,7 +1,9 @@
 package ldjam48.game.node;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import jdk.nashorn.internal.ir.Block;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.screens.MainGameScreen;
@@ -11,6 +13,7 @@ import java.util.Random;
 public class NodeTilemap extends Node {
     public int width, height;
     public int arrayMap[];
+    public int arrayMapBackground[];
 
     public int tileSize;
 
@@ -22,6 +25,7 @@ public class NodeTilemap extends Node {
         this.tileSize = tileSize;
 
         arrayMap = new int[width * height];
+        arrayMapBackground = new int[width * height];
 
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
@@ -66,15 +70,39 @@ public class NodeTilemap extends Node {
                 }
             }
         }
+
+        //arrayMapBackground = arrayMap;
+        for(int i = 0; i < arrayMap.length; i++) {
+            arrayMapBackground[i] = arrayMap[i];
+            if(arrayMapBackground[i] == BlockType.Sandiron.getBlockId())
+                arrayMapBackground[i] = BlockType.Sandstone.getBlockId();
+            if(arrayMapBackground[i] == BlockType.Sandcoal.getBlockId())
+                arrayMapBackground[i] = BlockType.Sandstone.getBlockId();
+
+            if(arrayMapBackground[i] == BlockType.Iron.getBlockId())
+                arrayMapBackground[i] = BlockType.Stone.getBlockId();
+            if(arrayMapBackground[i] == BlockType.Gold.getBlockId())
+                arrayMapBackground[i] = BlockType.Stone.getBlockId();
+        }
     }
 
     @Override
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
 
+        batch.setColor(new Color(0.5f, 0.5f, 0.5f, 1.0f));
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
-                BlockType blockType = BlockType.values()[getTileByPosition(j,i)];
+                BlockType blockType = BlockType.values()[getTileByPosition2(j,i)];
+                batch.draw(blockType.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
+            }
+        }
+
+        batch.setColor(Color.WHITE);
+
+        for(int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                BlockType blockType = BlockType.values()[getTileByPosition(j, i)];
                 batch.draw(blockType.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
             }
         }
@@ -82,6 +110,10 @@ public class NodeTilemap extends Node {
 
     public int getTileByPosition(int x, int y) {
         return arrayMap[y * width + x];
+    }
+
+    public int getTileByPosition2(int x, int y) {
+        return arrayMapBackground[y * width + x];
     }
 
     public int getTileByGlobalPosition(Vector2 position) {

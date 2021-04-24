@@ -111,6 +111,8 @@ public class NodePlayer extends NodeSprite{
         //super.update(batch, delta);
         batch.draw(img, position.x + animationLeft - animationRight, position.y + animationDown - animationUp, 32, 32);
 
+        MainGameScreen.upgradeDrill = false;
+
         if(face == Face.DOWN) {
             batch.draw(drillSprite, position.x, position.y - 32 + animationDown, 32, 32);
         }
@@ -155,7 +157,10 @@ public class NodePlayer extends NodeSprite{
                 int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y - 32));
                 if(blockId == BlockType.Bedrock.getBlockId()) return;
 
-                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) {
+                    MainGameScreen.upgradeDrill = true;
+                    return;
+                }
 
                 position.y -= 32;
                 drillSprite.setFlip(false, false);
@@ -169,6 +174,8 @@ public class NodePlayer extends NodeSprite{
             else if(Gdx.input.isKeyPressed(Input.Keys.W) && animationUp <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
                 int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y + 32));
                 if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+
+                if(position.y >= 192) return;
 
                 position.y += 32;
                 drillSprite.setFlip(false, true);
@@ -210,6 +217,7 @@ public class NodePlayer extends NodeSprite{
             animationRight = 0;
         }
 
+        MainGameScreen.hiddenMenuHint = false;
         showBaseMenu();
         showStorageMenu();
         showBaseUpgradeMenu();
@@ -228,31 +236,41 @@ public class NodePlayer extends NodeSprite{
         camera.update();
     }
 
-
-
     private void showStorageMenu() {
         if(nodeStorage.getRectangle().overlaps(getReactangle())) {
+            MainGameScreen.hiddenMenuHint = true;
+        }
+
+        if(nodeStorage.getRectangle().overlaps(getReactangle()) && Gdx.input.isKeyJustPressed(Input.Keys.E) && storageMenu.hidden) {
             storageMenu.hidden = false;
         }
-        else {
+        else if(!nodeStorage.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !storageMenu.hidden){
             storageMenu.hidden = true;
         }
     }
 
     private void showBaseMenu() {
         if(nodeBase.getRectangle().overlaps(getReactangle())) {
+            MainGameScreen.hiddenMenuHint = true;
+        }
+
+        if(nodeBase.getRectangle().overlaps(getReactangle()) && Gdx.input.isKeyJustPressed(Input.Keys.E) && baseMenu.hidden) {
             baseMenu.hidden = false;
         }
-        else {
+        else if(!nodeBase.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !baseMenu.hidden){
             baseMenu.hidden = true;
         }
     }
 
     private void showBaseUpgradeMenu() {
         if(nodeUpgradeBase.getRectangle().overlaps(getReactangle())) {
+            MainGameScreen.hiddenMenuHint = true;
+        }
+
+        if(nodeUpgradeBase.getRectangle().overlaps(getReactangle()) && Gdx.input.isKeyJustPressed(Input.Keys.E) && baseUpgradeMenu.hidden) {
             baseUpgradeMenu.hidden = false;
         }
-        else {
+        else if(!nodeUpgradeBase.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !baseUpgradeMenu.hidden){
             baseUpgradeMenu.hidden = true;
         }
     }
