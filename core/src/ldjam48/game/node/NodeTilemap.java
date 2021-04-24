@@ -59,7 +59,13 @@ public class NodeTilemap extends Node {
     }
 
     public int getTileByGlobalPosition(Vector2 position) {
-        return 0;
+        if((int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize)) >= arrayMap.length) return 0;
+        return arrayMap[(int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize))];
+    }
+
+    public void setTileByGlobalPosition(Vector2 position, int id) {
+        if((int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize)) >= arrayMap.length) return;
+        arrayMap[(int) (Math.round((position.y - this.position.y) / tileSize)) * width + (Math.round((position.x - this.position.x) / tileSize))] = id;
     }
 
     public void setTileByPosition(int x, int y, int id) {
