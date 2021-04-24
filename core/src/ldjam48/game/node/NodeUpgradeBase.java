@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import ldjam48.game.TextureManager;
 
-public class NodeBase extends NodeSprite {
-    public NodeBase() {
-        super("Base", TextureManager.base, 156, 128);
+public class NodeUpgradeBase extends NodeSprite {
+    public NodeUpgradeBase() {
+        super("Upgrade Base", TextureManager.base, 156, 128);
     }
 
     @Override

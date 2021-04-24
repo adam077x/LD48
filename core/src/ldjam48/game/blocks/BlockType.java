@@ -5,17 +5,19 @@ import ldjam48.game.TextureManager;
 
 public enum BlockType {
 
-    Air(0, "Air", new BlockMeta(false, false, TextureManager.blank)),
-    Dirt(1, "Dirt", new BlockMeta(true, false, TextureManager.dirt)),
-    Grass(2, "Grass", new BlockMeta(true, false, TextureManager.grass)),
-    Stone(3, "Stone", new BlockMeta(true, false, TextureManager.stone)),
-    Coal(4,"Coal", new BlockMeta(true, false, TextureManager.coal)),
-    Bedrock(5, "Bedrock", new BlockMeta(true, false, TextureManager.bedrock)),
-    Iron(6,"Iron", new BlockMeta(true, false, TextureManager.iron)),
-    Sandstone(7, "Sandstone", new BlockMeta(true, false, TextureManager.sandstone)),
-    Sand(8, "Sand", new BlockMeta(true, false, TextureManager.sand)),
-    Sandiron(9, "Snadiron", new BlockMeta(true, false, TextureManager.sandIron)),
-    Sandcoal(10, "Snadcoal", new BlockMeta(true, false, TextureManager.sandCoal));
+    Air(0, "Air", new BlockMeta(false, false, TextureManager.blank, 0)),
+    Dirt(1, "Dirt", new BlockMeta(true, false, TextureManager.dirt, 1)),
+    Grass(2, "Grass", new BlockMeta(true, false, TextureManager.grass, 1)),
+    Stone(3, "Stone", new BlockMeta(true, false, TextureManager.stone, 2)),
+    Coal(4,"Coal", new BlockMeta(true, false, TextureManager.coal, 2)),
+    Bedrock(5, "Bedrock", new BlockMeta(true, false, TextureManager.bedrock, 1000)),
+    Iron(6,"Iron", new BlockMeta(true, false, TextureManager.iron, 2)),
+    Sandstone(7, "Sandstone", new BlockMeta(true, false, TextureManager.sandstone, 1)),
+    Sand(8, "Sand", new BlockMeta(true, false, TextureManager.sand, 1)),
+    Sandiron(9, "Sandiron", new BlockMeta(true, false, TextureManager.sandIron, 1)),
+    Sandcoal(10, "Sandcoal", new BlockMeta(true, false, TextureManager.sandCoal, 1)),
+    Silver(11, "Silver", new BlockMeta(true, false, TextureManager.silver, 2)),
+    Gold(12, "Gold", new BlockMeta(true, false, TextureManager.gold, 2));
 
     private int blockId;
     private String blockName;

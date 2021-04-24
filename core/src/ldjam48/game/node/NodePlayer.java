@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.compression.lzma.Base;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.base.BaseMenu;
+import ldjam48.game.gui.base.BaseUpgradeMenu;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.items.Item;
@@ -25,6 +26,8 @@ public class NodePlayer extends NodeSprite{
     private NodeTilemap nodeTilemap;
     private NodeBase nodeBase;
     private BaseMenu baseMenu;
+    private BaseUpgradeMenu baseUpgradeMenu;
+    private NodeUpgradeBase nodeUpgradeBase;
 
     private Texture drill = TextureManager.drill;
     private Sprite drillSprite = new Sprite(drill);
@@ -35,6 +38,8 @@ public class NodePlayer extends NodeSprite{
     public Rectangle getReactangle() {
         return new Rectangle(position.x, position.y, img.getWidth(), img.getHeight());
     }
+
+    public static int drillLevel = 1;
 
     public NodePlayer() {
         super("Player", TextureManager.playerBase, 32, 32);
@@ -49,6 +54,10 @@ public class NodePlayer extends NodeSprite{
         nodeTilemap = (NodeTilemap)MainGameScreen.scene.findNode("Tilemap");
         nodeBase = (NodeBase)MainGameScreen.scene.findNode("Base");
         baseMenu = (BaseMenu) MainGameScreen.gui.addNode(new BaseMenu());
+        baseUpgradeMenu = (BaseUpgradeMenu) MainGameScreen.gui.addNode(new BaseUpgradeMenu());
+        nodeUpgradeBase = (NodeUpgradeBase) MainGameScreen.scene.addNode(new NodeUpgradeBase());
+        nodeUpgradeBase.position.y = 190;
+        nodeUpgradeBase.position.x = 190;
 
     }
 
@@ -85,6 +94,9 @@ public class NodePlayer extends NodeSprite{
         if(CoalStatus.coalLevel != 0)
         {
             if(Gdx.input.isKeyPressed(Input.Keys.A) && position.x > 0 && !isAnimationRunning()) {
+                int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x - 32, position.y));
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+
                 position.x -= 32;
                 drillSprite2.setFlip(true, false);
                 face = Face.LEFT;
@@ -95,6 +107,9 @@ public class NodePlayer extends NodeSprite{
                 mine(position.x, position.y );
             }
             else if(Gdx.input.isKeyPressed(Input.Keys.D) && position.x < (nodeTilemap.width-1) * nodeTilemap.tileSize && animationRight <= 0 && !isAnimationRunning()) {
+                int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x + 32, position.y));
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+
                 position.x += 32;
                 drillSprite2.setFlip(false, false);
                 face = Face.RIGHT;
@@ -108,6 +123,8 @@ public class NodePlayer extends NodeSprite{
                 int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y - 32));
                 if(blockId == BlockType.Bedrock.getBlockId()) return;
 
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+
                 position.y -= 32;
                 drillSprite.setFlip(false, false);
                 face = Face.DOWN;
@@ -118,6 +135,9 @@ public class NodePlayer extends NodeSprite{
                 mine(position.x, position.y);
             }
             else if(Gdx.input.isKeyPressed(Input.Keys.W) && animationUp <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
+                int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y + 32));
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+
                 position.y += 32;
                 drillSprite.setFlip(false, true);
                 animationUp += 32;
@@ -159,6 +179,7 @@ public class NodePlayer extends NodeSprite{
         }
 
         showBaseMenu();
+        showBaseUpgradeMenu();
 
         camera.position.x = position.x - animationRight + animationLeft;
         camera.position.y = position.y + animationDown - animationUp;
@@ -180,6 +201,15 @@ public class NodePlayer extends NodeSprite{
         }
         else {
             baseMenu.hidden = true;
+        }
+    }
+
+    private void showBaseUpgradeMenu() {
+        if(nodeUpgradeBase.getRectangle().overlaps(getReactangle())) {
+            baseUpgradeMenu.hidden = false;
+        }
+        else {
+            baseUpgradeMenu.hidden = true;
         }
     }
 

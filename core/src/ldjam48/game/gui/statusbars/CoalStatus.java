@@ -10,7 +10,7 @@ import ldjam48.game.gui.Gui;
 
 public class CoalStatus extends Gui {
 
-    public static int coalLevel = 10;
+    public static int coalLevel = 1000;
     public static int maxCoalLevel = 1000;
     public CoalStatus() {
         super("Coal_Status");
@@ -26,7 +26,6 @@ public class CoalStatus extends Gui {
         batch.draw(TextureManager.blankWhite,0+20, Gdx.graphics.getHeight()-40, 104, 22);
         batch.setColor(Color.WHITE);
         int percents =100 - ((maxCoalLevel- coalLevel) * 100)/maxCoalLevel;
-        System.out.println("percents: " + percents);
         batch.draw(TextureManager.blankWhite,0+22, Gdx.graphics.getHeight()-38, percents, 18);
 
         GlyphLayout glyphLayout = new GlyphLayout();

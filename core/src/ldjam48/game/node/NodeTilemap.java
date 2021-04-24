@@ -52,6 +52,17 @@ public class NodeTilemap extends Node {
                 else if(i <= height-50)
                 {
                     setTileByPosition(j, i, BlockType.Stone.getBlockId());
+
+                    int r = MainGameScreen.getInstance().random.nextInt(100);
+
+                    if(r >= 95 && r < 98)
+                    {
+                        setTileByPosition(j, i, BlockType.Silver.getBlockId());
+                    }
+                    if(r >= 99)
+                    {
+                        setTileByPosition(j, i, BlockType.Gold.getBlockId());
+                    }
                 }
             }
         }

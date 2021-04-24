@@ -6,8 +6,5 @@ public abstract class Gui extends Node {
     public Gui(String name) {
         super(name);
     }
-
-
-
 }
 

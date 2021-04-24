@@ -12,7 +12,7 @@ public class TextureManager {
     public static final Texture player = new Texture("player.png");
     public static final Texture bedrock = new Texture("bedrock.png");
     public static final Texture iron = new Texture("iron.png");
-    public static final Texture base = new Texture("badlogic.jpg");
+    public static final Texture base = new Texture("base.png");
     public static final Texture coal =  new Texture("coal.png");
     public static final Texture drill = new Texture("drill.png");
     public static final Texture playerBase = new Texture("player_base.png");
@@ -22,7 +22,10 @@ public class TextureManager {
     public static final Texture sand = new Texture("sand.png");
     public static final Texture sandIron = new Texture("Sandiron.png");
     public static final Texture sandCoal = new Texture("Sandcoal.png");
-
+    public static final Texture gold = new Texture("gold.png");
+    public static final Texture silver = new Texture("silver.png");
+    public static final Texture button = new Texture("button.png");
+    public static final Texture buttonFlash = new Texture("button_flash.png");
 
     //Player
     public static final Texture player_rotated = new Texture("player_rotated.png");

@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.Game;
+import ldjam48.game.gui.components.Button;
 import ldjam48.game.gui.components.Hint;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.inventory.Inventory;
@@ -71,13 +72,11 @@ public class MainGameScreen implements Screen {
 
         scene.addNode(nodeBase);
 
-
         nodePlayer = new NodePlayer();
         nodePlayer.position.y = 190;
         nodePlayer.position.x = 16*32;
 
         scene.addNode(nodePlayer);
-
         gui.addNode(inventory = new Inventory());
         gui.addNode(new NodeClickRender());
 
