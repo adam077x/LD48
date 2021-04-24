@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.screens.MainGameScreen;
+import ldjam48.game.screens.MainMenuScreen;
 
 public class Game extends com.badlogic.gdx.Game {
 	public SpriteBatch batch;
@@ -13,7 +14,8 @@ public class Game extends com.badlogic.gdx.Game {
 	public void create () {
 		//this.create();
 		batch = new SpriteBatch();
-		this.setScreen(new MainGameScreen(this));
+		//this.setScreen(new MainGameScreen(this));
+		this.setScreen(new MainMenuScreen(this));
 	}
 
 	@Override
