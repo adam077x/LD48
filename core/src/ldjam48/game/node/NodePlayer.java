@@ -2,6 +2,8 @@ package ldjam48.game.node;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -13,13 +15,18 @@ import javax.xml.bind.util.ValidationEventCollector;
 
 public class NodePlayer extends NodeSprite{
     public float force;
+    public OrthographicCamera camera;
+    private NodeTilemap nodeTilemap;
 
     public NodePlayer() {
         super("Player", TextureManager.player, 32, 32);
+        camera = new OrthographicCamera(640, 480);
+        camera.position.x = position.x;
+        camera.position.y = position.y;
+
         nodeTilemap = MainGameScreen.tilemap;
     }
 
-    private NodeTilemap nodeTilemap;
     @Override
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
@@ -42,7 +49,9 @@ public class NodePlayer extends NodeSprite{
             mine(position.x, position.y );
         }
 
-
+        camera.position.x = position.x;
+        camera.position.y = position.y;
+        camera.update();
     }
 
     public void mine(float x, float y)
