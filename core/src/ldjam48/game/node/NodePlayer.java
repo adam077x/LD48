@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
-import ldjam48.game.gui.BaseMenu;
+import ldjam48.game.gui.base.BaseMenu;
 import ldjam48.game.items.Item;
 import ldjam48.game.screens.MainGameScreen;
 

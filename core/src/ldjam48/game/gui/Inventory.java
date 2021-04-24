@@ -64,7 +64,7 @@ public class Inventory extends Node {
 
             batch.draw(texture, Gdx.graphics.getWidth()-tileSize+8,150+(tileSize*(i+1)) - 16);
 
-            batch.setColor(item.getItemAmount() == 0 ? Color.RED : Color.BLACK);
+            font.setColor(item.getItemAmount() == 0 ? Color.RED : Color.BLACK);
             font.draw(batch, item.getItemAmount() + "", Gdx.graphics.getWidth() - tileSize, 160 + (tileSize*i) + 5);
             batch.setColor(Color.WHITE);
         }

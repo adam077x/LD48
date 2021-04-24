@@ -4,6 +4,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
+import ldjam48.game.screens.MainGameScreen;
+
+import java.util.Random;
 
 public class NodeTilemap extends Node {
     public int width, height;
@@ -23,16 +26,30 @@ public class NodeTilemap extends Node {
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
                 if(i == height-1) {
-                    setTileByPosition(j, i, 2);
+                    setTileByPosition(j, i, BlockType.Grass.getBlockId());
                 }
                 else if(i-1 >= height-4){
-                    setTileByPosition(j, i, 1);
+                    setTileByPosition(j, i, BlockType.Dirt.getBlockId());
                 }
                 else if(i == 0) {
-                    setTileByPosition(j, i, 5);
+                    setTileByPosition(j, i, BlockType.Bedrock.getBlockId());
                 }
                 else {
-                    setTileByPosition(j, i, 3);
+                    //Random gen
+                    int r = MainGameScreen.getInstance().random.nextInt(100);
+
+                    if(r < 85)
+                    {
+                        setTileByPosition(j, i, BlockType.Stone.getBlockId());
+                    }
+                    if(r >= 85 && r < 95)
+                    {
+                        setTileByPosition(j, i, BlockType.Coal.getBlockId());
+                    }
+                    if(r >= 95)
+                    {
+                        setTileByPosition(j, i, BlockType.Iron.getBlockId());
+                    }
                 }
             }
         }
@@ -44,21 +61,8 @@ public class NodeTilemap extends Node {
 
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
-                if(getTileByPosition(j, i) == BlockType.Dirt.getBlockId()) {
-                    batch.draw(BlockType.Dirt.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
-                }
-                else if(getTileByPosition(j, i) == BlockType.Grass.getBlockId()) {
-                    batch.draw(BlockType.Grass.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
-                }
-                else if(getTileByPosition(j, i) == BlockType.Stone.getBlockId()) {
-                    batch.draw(BlockType.Stone.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
-                }
-                else if(getTileByPosition(j, i) == BlockType.Stone.getBlockId()) {
-                    batch.draw(BlockType.Stone.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
-                }
-                else if(getTileByPosition(j, i) == BlockType.Bedrock.getBlockId()) {
-                    batch.draw(BlockType.Bedrock.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
-                }
+                BlockType blockType = BlockType.values()[getTileByPosition(j,i)];
+                batch.draw(blockType.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
             }
         }
     }
