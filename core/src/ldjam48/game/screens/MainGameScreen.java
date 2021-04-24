@@ -4,12 +4,11 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.Game;
-import ldjam48.game.gui.Inventory;
+import ldjam48.game.gui.inventory.Inventory;
 import ldjam48.game.node.*;
 
 import java.util.Random;
