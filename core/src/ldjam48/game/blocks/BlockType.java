@@ -11,7 +11,11 @@ public enum BlockType {
     Stone(3, "Stone", new BlockMeta(true, false, TextureManager.stone)),
     Coal(4,"Coal", new BlockMeta(true, false, TextureManager.coal)),
     Bedrock(5, "Bedrock", new BlockMeta(true, false, TextureManager.bedrock)),
-    Iron(6,"Iron", new BlockMeta(true, false, TextureManager.iron));
+    Iron(6,"Iron", new BlockMeta(true, false, TextureManager.iron)),
+    Sandstone(7, "Sandstone", new BlockMeta(true, false, TextureManager.sandstone)),
+    Sand(8, "Sand", new BlockMeta(true, false, TextureManager.sand)),
+    Sandiron(9, "Snadiron", new BlockMeta(true, false, TextureManager.sandIron)),
+    Sandcoal(10, "Snadcoal", new BlockMeta(true, false, TextureManager.sandCoal));
 
     private int blockId;
     private String blockName;

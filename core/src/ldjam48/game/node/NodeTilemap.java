@@ -26,30 +26,32 @@ public class NodeTilemap extends Node {
         for(int i = 0; i < height; i++) {
             for(int j = 0; j < width; j++) {
                 if(i == height-1) {
-                    setTileByPosition(j, i, BlockType.Grass.getBlockId());
+                    setTileByPosition(j, i, BlockType.Sand.getBlockId());
                 }
                 else if(i-1 >= height-4){
-                    setTileByPosition(j, i, BlockType.Dirt.getBlockId());
+                    setTileByPosition(j, i, BlockType.Sand.getBlockId());
                 }
                 else if(i == 0) {
                     setTileByPosition(j, i, BlockType.Bedrock.getBlockId());
                 }
-                else {
-                    //Random gen
+                else if(i > height-50)
+                {
+                    setTileByPosition(j, i, BlockType.Sandstone.getBlockId());
+
                     int r = MainGameScreen.getInstance().random.nextInt(100);
 
-                    if(r < 85)
+                    if(r >= 92 && r < 97)
                     {
-                        setTileByPosition(j, i, BlockType.Stone.getBlockId());
+                        setTileByPosition(j, i, BlockType.Sandcoal.getBlockId());
                     }
-                    if(r >= 85 && r < 95)
+                    if(r >= 98)
                     {
-                        setTileByPosition(j, i, BlockType.Coal.getBlockId());
+                        setTileByPosition(j, i, BlockType.Sandiron.getBlockId());
                     }
-                    if(r >= 95)
-                    {
-                        setTileByPosition(j, i, BlockType.Iron.getBlockId());
-                    }
+                }
+                else if(i <= height-50)
+                {
+                    setTileByPosition(j, i, BlockType.Stone.getBlockId());
                 }
             }
         }
