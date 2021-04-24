@@ -40,7 +40,7 @@ public class NodePlayer extends NodeSprite{
             mine(position.x, position.y );
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.D) && position.x < (nodeTilemap.width-1) * nodeTilemap.tileSize) {
-            position.x += 256;
+            position.x += 32;
             mine(position.x, position.y );
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.S)) {
