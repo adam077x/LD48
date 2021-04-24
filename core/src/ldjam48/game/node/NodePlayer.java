@@ -16,28 +16,37 @@ public class NodePlayer extends NodeSprite{
 
     public NodePlayer() {
         super("Player", TextureManager.player, 32, 32);
+        nodeTilemap = MainGameScreen.tilemap;
     }
 
+    private NodeTilemap nodeTilemap;
     @Override
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.A)) {
             position.x -= 32;
-            MainGameScreen.tilemap.setTileByGlobalPosition(new Vector2(position.x, position.y), 0);
+            mine(position.x, position.y );
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.D)) {
             position.x += 32;
-            MainGameScreen.tilemap.setTileByGlobalPosition(new Vector2(position.x, position.y), 0);
+            mine(position.x, position.y );
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.S)) {
             position.y -= 32;
-            MainGameScreen.tilemap.setTileByGlobalPosition(new Vector2(position.x, position.y + 16), 0);
+            mine(position.x, position.y + 16);
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.W)) {
             if(position.y >= 190) return;
             position.y += 32;
-            MainGameScreen.tilemap.setTileByGlobalPosition(new Vector2(position.x, position.y), 0);
+            mine(position.x, position.y );
         }
+
+
+    }
+
+    public void mine(float x, float y)
+    {
+        nodeTilemap.setTileByGlobalPosition(new Vector2(x, y), 0);
     }
 }

@@ -22,6 +22,8 @@ public class MainGameScreen implements Screen {
     public Node scene;
     public static NodeTilemap tilemap;
 
+    private Inventory inventory;
+
     public MainGameScreen(Game game) {
         this.game = game;
     }
@@ -41,7 +43,7 @@ public class MainGameScreen implements Screen {
         scene.addNode(tilemap);
         scene.addNode(nodePlayer);
 
-        scene.addNode(new Inventory());
+        scene.addNode(inventory = new Inventory());
     }
 
     @Override
@@ -80,5 +82,9 @@ public class MainGameScreen implements Screen {
     public void dispose() {
         img.dispose();
         font.dispose();
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }
