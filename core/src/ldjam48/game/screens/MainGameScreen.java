@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.Game;
 import ldjam48.game.node.Node;
+import ldjam48.game.node.NodePlayer;
 import ldjam48.game.node.NodeSprite;
 import ldjam48.game.node.NodeTilemap;
 
@@ -18,7 +19,7 @@ public class MainGameScreen implements Screen {
     Game game;
 
     public Node scene;
-    public NodeTilemap tilemap;
+    public static NodeTilemap tilemap;
 
     public MainGameScreen(Game game) {
         this.game = game;
@@ -29,18 +30,20 @@ public class MainGameScreen implements Screen {
         img = new Texture("badlogic.jpg");
         scene = new Node("Game Scene");
         scene.position = new Vector2(0, 0);
-        NodeSprite nodeSprite = new NodeSprite("TestNode", img);
-        nodeSprite.position.x = 20;
 
-        tilemap = new NodeTilemap("Tilemap", 64, 256, 64);
+        tilemap = new NodeTilemap("Tilemap", 64, 256, 32);
+        tilemap.position.y += -8000;
+
+        NodePlayer nodePlayer = new NodePlayer();
+        nodePlayer.position.y += 190;
+
         scene.addNode(tilemap);
-
-        scene.addNode(nodeSprite);
+        scene.addNode(nodePlayer);
     }
 
     @Override
     public void render(float delta) {
-        ScreenUtils.clear(1, 0, 0, 1);
+        ScreenUtils.clear(0.8f, 0.8f, 1, 1);
         game.batch.begin();
 
         font.draw(game.batch, "Hello World", 300, 300);

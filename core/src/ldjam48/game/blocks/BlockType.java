@@ -1,10 +1,13 @@
 package ldjam48.game.blocks;
 
+import jdk.nashorn.internal.ir.Block;
 import ldjam48.game.TextureManager;
 
 public enum BlockType {
-    Mars_Soil(1, "Soil", new BlockMeta(true, false, TextureManager.img)),
-    Coal(2,"Coal", new BlockMeta(true, false, TextureManager.img));
+    Dirt(1, "Dirt", new BlockMeta(true, false, TextureManager.dirt)),
+    Grass(2, "Grass", new BlockMeta(true, false, TextureManager.grass)),
+    Stone(3, "Stone", new BlockMeta(true, false, TextureManager.stone)),
+    Coal(4,"Coal", new BlockMeta(true, false, TextureManager.img));
     private int blockId;
     private String blockName;
     private BlockMeta blockMeta;
