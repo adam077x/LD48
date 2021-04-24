@@ -1,10 +1,8 @@
 package ldjam48.game.blocks;
 
-import ldjam48.game.TextureManager;
-
 public enum BlockType {
-    Mars_Soil(1, "Soil", new BlockMeta(true, false, TextureManager.img)),
-    Coal(2,"Coal", new BlockMeta(true, false, TextureManager.img));
+    Mars_Soil(0, "Soil", new BlockMeta(true, false)),
+    Coal(1,"Coal", new BlockMeta(true, false));
     private int blockId;
     private String blockName;
     private BlockMeta blockMeta;
