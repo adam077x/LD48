@@ -14,6 +14,12 @@ public class TextureManager {
     public static final Texture iron = new Texture("iron.png");
     public static final Texture base = new Texture("badlogic.jpg");
 
+
+    //Player
+    public static final Texture player_rotated = new Texture("player_rotated.png");
+
+
+
     //Inventory
     public static final Texture inventory = new Texture("inventory_tile.png");
     public static final Texture backgroundGui = new Texture("background_gui.png");
