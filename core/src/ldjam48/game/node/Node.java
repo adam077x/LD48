@@ -63,7 +63,18 @@ public class Node {
     }
 
     public Node addNode(Node n) {
+        n.parent = this;
         nodes.add(n);
         return n;
+    }
+
+    public Node findNode(String name) {
+        for(Node n : nodes) {
+            if(n.name.equals(name)) {
+                return n;
+            }
+        }
+
+        return null;
     }
 }

@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import jdk.jfr.internal.tool.Main;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
+import ldjam48.game.gui.BaseMenu;
 import ldjam48.game.items.Item;
 import ldjam48.game.screens.MainGameScreen;
 
@@ -19,6 +21,12 @@ public class NodePlayer extends NodeSprite{
     public float force;
     public OrthographicCamera camera;
     private NodeTilemap nodeTilemap;
+    private NodeBase nodeBase;
+    private BaseMenu baseMenu;
+
+    public Rectangle getReactangle() {
+        return new Rectangle(position.x, position.y, img.getWidth(), img.getHeight());
+    }
 
     public NodePlayer() {
         super("Player", TextureManager.player, 32, 32);
@@ -26,7 +34,9 @@ public class NodePlayer extends NodeSprite{
         camera.position.x = position.x;
         camera.position.y = position.y;
 
-        nodeTilemap = MainGameScreen.tilemap;
+        nodeTilemap = (NodeTilemap)MainGameScreen.scene.findNode("Tilemap");
+        nodeBase = (NodeBase)MainGameScreen.scene.findNode("Base");
+        baseMenu = (BaseMenu) MainGameScreen.gui.addNode(new BaseMenu());
     }
 
     public float animateY = 0;
@@ -59,15 +69,28 @@ public class NodePlayer extends NodeSprite{
             animateY += 128 * delta;
         }
 
+        showBaseMenu();
+
         camera.position.x = position.x;
         camera.position.y = position.y;
         camera.update();
+    }
+
+    private void showBaseMenu() {
+        if(nodeBase.getRectangle().overlaps(getReactangle())) {
+            baseMenu.hidden = false;
+        }
+        else {
+            baseMenu.hidden = true;
+        }
     }
 
     public void mine(float x, float y)
     {
         int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(x, y));
         if(blockId == 0)
+            return;
+        else if(blockId == BlockType.Bedrock.getBlockId())
             return;
         BlockType blockType = BlockType.values()[blockId];
         Item item = new Item(blockType, 1);

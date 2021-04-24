@@ -28,6 +28,9 @@ public class NodeTilemap extends Node {
                 else if(i-1 >= height-4){
                     setTileByPosition(j, i, 1);
                 }
+                else if(i == 0) {
+                    setTileByPosition(j, i, 5);
+                }
                 else {
                     setTileByPosition(j, i, 3);
                 }
@@ -49,6 +52,12 @@ public class NodeTilemap extends Node {
                 }
                 else if(getTileByPosition(j, i) == BlockType.Stone.getBlockId()) {
                     batch.draw(BlockType.Stone.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
+                }
+                else if(getTileByPosition(j, i) == BlockType.Stone.getBlockId()) {
+                    batch.draw(BlockType.Stone.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
+                }
+                else if(getTileByPosition(j, i) == BlockType.Bedrock.getBlockId()) {
+                    batch.draw(BlockType.Bedrock.getBlockMeta().getTexture(), j * tileSize + position.x, i * tileSize + position.y, tileSize, tileSize);
                 }
             }
         }

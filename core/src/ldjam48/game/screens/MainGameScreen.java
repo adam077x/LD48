@@ -9,10 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.Game;
 import ldjam48.game.gui.Inventory;
-import ldjam48.game.node.Node;
-import ldjam48.game.node.NodePlayer;
-import ldjam48.game.node.NodeSprite;
-import ldjam48.game.node.NodeTilemap;
+import ldjam48.game.node.*;
 
 public class MainGameScreen implements Screen {
     Texture img;
@@ -20,10 +17,11 @@ public class MainGameScreen implements Screen {
 
     Game game;
 
-    public Node scene;
-    public Node gui;
+    public static Node scene;
+    public static Node gui;
     public NodePlayer nodePlayer;
-    public static NodeTilemap tilemap;
+    public NodeBase nodeBase;
+    public NodeTilemap tilemap;
 
     private Inventory inventory;
 
@@ -46,11 +44,17 @@ public class MainGameScreen implements Screen {
         tilemap = new NodeTilemap("Tilemap", 64, 256, 32);
         tilemap.position.y += -8000;
 
+        scene.addNode(tilemap);
+
+        nodeBase = new NodeBase();
+        nodeBase.position.y = 190;
+
+        scene.addNode(nodeBase);
+
         nodePlayer = new NodePlayer();
         nodePlayer.position.y = 190;
         nodePlayer.position.x = 16*32;
 
-        scene.addNode(tilemap);
         scene.addNode(nodePlayer);
 
         gui.addNode(inventory = new Inventory());
@@ -61,8 +65,6 @@ public class MainGameScreen implements Screen {
         ScreenUtils.clear(0.8f, 0.8f, 1, 1);
         game.batch.setProjectionMatrix(nodePlayer.camera.combined);
         game.batch.begin();
-
-        font.draw(game.batch, "Hello World", 300, 300);
 
         scene.update(game.batch, delta);
 
