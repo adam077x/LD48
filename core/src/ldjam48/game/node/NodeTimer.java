@@ -49,8 +49,6 @@ public class NodeTimer extends Node {
 
         MainGameScreen.statistics.put("time", milliesToText(startMillies));
         font.draw(batch, "Time left:" +milliesToText(endMillies - startMillies), 21, Gdx.graphics.getHeight()-73);
-
-
     }
     Date date;
     DateFormat formatter = new SimpleDateFormat("mm:ss");

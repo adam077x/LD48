@@ -39,9 +39,9 @@ public class RocketMenu extends Gui {
 
         int[][] blocksIds = new int[3][2];
         blocksIds[0][0] = BlockType.SilverIngot.getBlockId();
-        blocksIds[0][1] = 8;
+        blocksIds[0][1] = 4;
         blocksIds[1][0] = BlockType.IronIngot.getBlockId();
-        blocksIds[1][1] = 8;
+        blocksIds[1][1] = 4;
         blocksIds[2][0] = 0;
         blocksIds[2][1] = 0;
 
@@ -53,11 +53,11 @@ public class RocketMenu extends Gui {
 
         int[][] blocksIds2 = new int[3][2];
         blocksIds2[0][0] = BlockType.MagmaBlock.getBlockId();
-        blocksIds2[0][1] = 8;
+        blocksIds2[0][1] = 4;
         blocksIds2[1][0] = BlockType.IronIngot.getBlockId();
-        blocksIds2[1][1] = 8;
+        blocksIds2[1][1] = 4;
         blocksIds2[2][0] = BlockType.Coal.getBlockId();
-        blocksIds2[2][1] = 8;
+        blocksIds2[2][1] = 4;
 
         CraftingSlots.Recipe recipe2 = new CraftingSlots.Recipe(blocksIds2, new Item(BlockType.MagmaIngot, 1));
 
@@ -65,11 +65,11 @@ public class RocketMenu extends Gui {
 
         int[][] blocksIds3 = new int[3][2];
         blocksIds2[0][0] = BlockType.IronIngot.getBlockId();
-        blocksIds2[0][1] = 8;
+        blocksIds2[0][1] = 4;
         blocksIds2[1][0] = BlockType.SilverIngot.getBlockId();
-        blocksIds2[1][1] = 8;
+        blocksIds2[1][1] = 4;
         blocksIds2[2][0] = BlockType.GoldIngot.getBlockId();
-        blocksIds2[2][1] = 8;
+        blocksIds2[2][1] = 4;
 
         CraftingSlots.Recipe recipe3 = new CraftingSlots.Recipe(blocksIds2, new Item(BlockType.MetalParts, 1));
 
@@ -93,15 +93,20 @@ public class RocketMenu extends Gui {
 
         addNode(slot3);
 
-        Button button = new Button("Flyaway", "Fly away with rocket", 128, 64, new ButtonEvent() {
+        Button button = new Button("Flyaway", "Fly away with rocket", 175, 32, new ButtonEvent() {
             @Override
             public void onClick() {
                 NodeRocketBase nodeRocketBase = (NodeRocketBase) MainGameScreen.getInstance().scene.findNode("Node Rocket Base");
 
                 nodeRocketBase.sprite = new Sprite(TextureManager.rocket);
-                NodeRocketBase.flyAway = true;
+                if(assembled) {
+                    NodeRocketBase.flyAway = true;
+                }
             }
         });
+
+        button.position.x = 79 + 240;
+        button.position.y = 145;
 
         addNode(button);
     }

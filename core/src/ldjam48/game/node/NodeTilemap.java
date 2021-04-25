@@ -44,7 +44,7 @@ public class NodeTilemap extends Node {
 
                     int r = MainGameScreen.getInstance().random.nextInt(100);
 
-                    if(r >= 89 && r < 96)
+                    if(r >= 85 && r < 96)
                     {
                         setTileByPosition(j, i, BlockType.Sandcoal.getBlockId());
                     }
@@ -68,7 +68,7 @@ public class NodeTilemap extends Node {
                         setTileByPosition(j, i, BlockType.Gold.getBlockId());
                     }
 
-                    if(r >= 90 && r < 93)
+                    if(r >= 88 && r < 93)
                     {
                         setTileByPosition(j, i, BlockType.Coal_Ore.getBlockId());
                     }
