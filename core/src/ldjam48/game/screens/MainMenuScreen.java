@@ -44,7 +44,9 @@ public class MainMenuScreen implements Screen {
 
         for(int i = 0; i < options.length; i++) {
             if(i == selection) {
+                font.setColor(Color.YELLOW);
                 font.draw(batch, "< "+ options[options.length - i - 1] + " >", Gdx.graphics.getWidth() / 2 - 30, Gdx.graphics.getHeight() / 2 + (i * 32));
+                font.setColor(Color.WHITE);
             }
             else {
                 font.draw(batch, options[options.length - i - 1], Gdx.graphics.getWidth() / 2 - 25, Gdx.graphics.getHeight() / 2 + (i * 32));

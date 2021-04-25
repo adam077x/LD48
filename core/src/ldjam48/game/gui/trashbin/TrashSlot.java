@@ -3,12 +3,14 @@ package ldjam48.game.gui.trashbin;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import ldjam48.game.TextureManager;
+import ldjam48.game.gui.components.BackgroundSlot;
 import ldjam48.game.gui.components.Slot;
 import ldjam48.game.gui.inventory.Inventory;
 
-public class TrashSlot extends Slot {
+public class TrashSlot extends BackgroundSlot {
     public TrashSlot(String slotId, Texture slotTexture) {
-        super(slotId, slotTexture);
+        super(slotId, TextureManager.trashbin, 0);
     }
 
     @Override

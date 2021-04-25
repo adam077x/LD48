@@ -1,11 +1,13 @@
 package ldjam48.game.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.shaders.DefaultShader;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import ldjam48.game.node.NodeTimer;
 
@@ -38,11 +40,6 @@ public class MainEndScene implements Screen {
         font.draw(batch, "Blocks Mined: " + (int)MainGameScreen.statistics.get("blocks_mined"), Gdx.graphics.getWidth()/2 - glyphLayout.width/2, Gdx.graphics.getHeight()/2 + 150);
         glyphLayout.setText(font, "Finished in: " + (String)MainGameScreen.statistics.get("time"));
         font.draw(batch, "Finished in:" + (String)MainGameScreen.statistics.get("time"), Gdx.graphics.getWidth()/2 - glyphLayout.width/2, Gdx.graphics.getHeight()/2 + 200);
-
-
-
-
-
 
         batch.end();
     }

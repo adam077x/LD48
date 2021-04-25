@@ -36,6 +36,8 @@ public class TextureManager {
     public static final Texture rocket_ramp = new Texture("ramap_01.png");
     public static final Texture rocket_ramp2 = new Texture("raketa_rampa01.png");
     public static final Texture rocket = new Texture("raketa01.png");
+    public static final Texture trashbin = new Texture("trash_bin.png");
+    public static final Texture rocket_ramp3 = new Texture("raketa_rampa02.png");
 
     public static final Texture drills = new Texture("drills.png");
 

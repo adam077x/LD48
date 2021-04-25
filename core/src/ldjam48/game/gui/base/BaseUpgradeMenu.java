@@ -28,19 +28,19 @@ public class BaseUpgradeMenu extends Gui {
     public BaseUpgradeMenu() {
         super("Upgrade Garage");
 
-        slot1 = new SlotNamed(0, "Irons (8x)");
+        slot1 = new SlotNamed(0, "Iron Ingot (8x)");
         slot1.position.x = 100;
         slot1.position.y = 300;
         addNode(slot1);
 
         if(NodePlayer.drillLevel == 1) {
             item = BlockType.IronIngot.getBlockId();
-            slot1.name = "Iron (16x)";
+            slot1.name = "Iron Ingot (16x)";
         }
         else if(NodePlayer.drillLevel == 2) {
             item = BlockType.Gold.getBlockId();
 
-            slot1.name = "Gold (16x)";
+            slot1.name = "Gold Ingot (16x)";
         }
         else if(NodePlayer.drillLevel == 3) {
             item = BlockType.Diamond.getBlockId();
@@ -64,12 +64,12 @@ public class BaseUpgradeMenu extends Gui {
 
                 if(NodePlayer.drillLevel == 1) {
                     item = BlockType.IronIngot.getBlockId();
-                    slot1.name = "Iron (16x)";
+                    slot1.name = "Iron Ingot (16x)";
                 }
                 else if(NodePlayer.drillLevel == 2) {
                     item = BlockType.GoldIngot.getBlockId();
 
-                    slot1.name = "Gold (16x)";
+                    slot1.name = "Gold Ingot (16x)";
                 }
                 else if(NodePlayer.drillLevel == 3) {
                     item = BlockType.Diamond.getBlockId();
@@ -104,7 +104,7 @@ public class BaseUpgradeMenu extends Gui {
         upgradeFuelStorage.position.y = Gdx.graphics.getHeight() / 2 - 30;
         addNode(upgradeFuelStorage);
 
-        slot2 = new SlotNamed(1, "Irons (5x)");
+        slot2 = new SlotNamed(1, "Iron Ingot (5x)");
         slot2.position.x = Gdx.graphics.getWidth() / 2 - 220;
         slot2.position.y = Gdx.graphics.getHeight() / 2 - 15;
         addNode(slot2);

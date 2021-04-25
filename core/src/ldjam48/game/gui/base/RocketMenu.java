@@ -130,7 +130,7 @@ public class RocketMenu extends Gui {
             if(slot1.getItemInSlot().getBlockType().getBlockId() == BlockType.MechanicalPart.getBlockId() && slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.MetalParts.getBlockId() && slot3.getItemInSlot().getBlockType().getBlockId() == BlockType.MagmaIngot.getBlockId()) {
                 NodeRocketBase nodeRocketBase = (NodeRocketBase) MainGameScreen.getInstance().scene.findNode("Node Rocket Base");
                 //MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
-                nodeRocketBase.sprite = new Sprite(TextureManager.rocket_ramp2);
+                nodeRocketBase.sprite = new Sprite(TextureManager.rocket_ramp3);
                 assembled = true;
             }
         }

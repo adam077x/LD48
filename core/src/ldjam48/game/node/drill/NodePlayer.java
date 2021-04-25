@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.Game;
+import ldjam48.game.SoundManager;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.base.*;
@@ -124,6 +125,13 @@ public class NodePlayer extends NodeSprite {
     int sprite = 0;
     @Override
     public void update(SpriteBatch batch, float delta) {
+        if(CoalStatus.coalLevel <= 0)
+        {
+            MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
+            //GameOver.hidden = false;
+            return;
+        }
+
         if(current + 400 + delta >= System.currentTimeMillis())
         {
 
@@ -171,7 +179,10 @@ public class NodePlayer extends NodeSprite {
         {
             if(Gdx.input.isKeyPressed(Input.Keys.A) && position.x > 0 && !isAnimationRunning()) {
                 int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x - 32, position.y));
-                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) {
+                    MainGameScreen.upgradeDrill = true;
+                    return;
+                }
 
                 position.x -= 32;
 
@@ -185,7 +196,10 @@ public class NodePlayer extends NodeSprite {
             }
             else if(Gdx.input.isKeyPressed(Input.Keys.D) && position.x < (nodeTilemap.width-1) * nodeTilemap.tileSize && animationRight <= 0 && !isAnimationRunning()) {
                 int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x + 32, position.y));
-                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) {
+                    MainGameScreen.upgradeDrill = true;
+                    return;
+                }
 
                 position.x += 32;
                 drillSprite2.setFlip(false, false);
@@ -216,8 +230,10 @@ public class NodePlayer extends NodeSprite {
             }
             else if(Gdx.input.isKeyPressed(Input.Keys.W) && animationUp <= 0 && !Gdx.input.isKeyPressed(Input.Keys.A) && !Gdx.input.isKeyPressed(Input.Keys.D) && !isAnimationRunning()) {
                 int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(position.x, position.y + 32));
-                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) return;
-
+                if(!(BlockType.values()[blockId].getBlockMeta().getHardness() <= drillLevel)) {
+                    MainGameScreen.upgradeDrill = true;
+                    return;
+                }
                 if(position.y >= 192) return;
 
                 position.y += 32;
@@ -389,6 +405,17 @@ public class NodePlayer extends NodeSprite {
             return;
         else if(blockId == BlockType.Bedrock.getBlockId())
             return;
+
+        if(Math.random() >= 0.7f) {
+            SoundManager.sound.play(0.5f);
+        }
+        else if(Math.random() >= 0.4f) {
+            SoundManager.sound2.play(0.5f);
+        }
+        else {
+            SoundManager.sound3.play(0.5f);
+        }
+
         if(CoalStatus.coalLevel <= 0)
         {
             MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());

@@ -26,8 +26,13 @@ public class CoalStatus extends Gui {
         batch.draw(TextureManager.blankWhite,0+20, Gdx.graphics.getHeight()-40, 104, 22);
         batch.setColor(Color.WHITE);
         int percents =100 - ((maxCoalLevel- coalLevel) * 100)/maxCoalLevel;
+        if(coalLevel <= 100) {
+            batch.setColor(Color.RED);
+        }
         batch.draw(TextureManager.blankWhite,0+22, Gdx.graphics.getHeight()-38, percents, 18);
-
+        batch.setColor(Color.WHITE);    
+        batch.setColor(Color.WHITE);    
+        
         GlyphLayout glyphLayout = new GlyphLayout();
         glyphLayout.setText(font, coalLevel + "/" +maxCoalLevel);
         font.setColor(Color.BLACK);

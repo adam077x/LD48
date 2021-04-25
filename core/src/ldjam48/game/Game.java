@@ -15,8 +15,8 @@ public class Game extends com.badlogic.gdx.Game {
 	public void create () {
 		//this.create();
 		batch = new SpriteBatch();
-		//this.setScreen(new MainGameScreen(this));
-		this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new TutorialScene(this));
+		//this.setScreen(new MainMenuScreen(this));
 	}
 
 	@Override

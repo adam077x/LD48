@@ -11,7 +11,7 @@ import ldjam48.game.screens.MainGameScreen;
 
 public class NodeRocketBase extends NodeSprite {
     public NodeRocketBase() {
-        super("Node Rocket Base", TextureManager.rocket_ramp, 256, 256);
+        super("Node Rocket Base", TextureManager.rocket_ramp2, 256, 256);
     }
 
     public static boolean flyAway = false;

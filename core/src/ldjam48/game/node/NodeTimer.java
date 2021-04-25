@@ -1,6 +1,7 @@
 package ldjam48.game.node;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -48,6 +49,10 @@ public class NodeTimer extends Node {
 
 
         MainGameScreen.statistics.put("time", milliesToText(startMillies));
+
+        if(endMillies - startMillies <= 1000*60) {
+            font.setColor(Color.RED);
+        }
         font.draw(batch, "Time left:" +milliesToText(endMillies - startMillies), 21, Gdx.graphics.getHeight()-73);
     }
     Date date;

@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.Gui;
+import ldjam48.game.gui.components.BackgroundSlot;
 import ldjam48.game.gui.components.Button;
 import ldjam48.game.gui.components.ButtonEvent;
 import ldjam48.game.gui.statusbars.CoalStatus;
@@ -23,7 +24,7 @@ public class BaseMenu extends Gui {
 
         int x = 100;
         int y = Gdx.graphics.getHeight() / 2;
-        final SlotNamed baseSlot = new SlotNamed(1,"Coal(5x)");
+        final BackgroundSlot baseSlot = new BackgroundSlot("AAA",TextureManager.coal, 5);
         baseSlot.position = new Vector2(110, 290);
 
         fuelButton = new Button("Fuel", "Add Fuel", 128, 64, new ButtonEvent() {
