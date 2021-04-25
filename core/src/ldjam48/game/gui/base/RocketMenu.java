@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import jdk.nashorn.internal.ir.Block;
@@ -17,6 +18,7 @@ import ldjam48.game.gui.components.ButtonEvent;
 import ldjam48.game.gui.components.CraftingSlots;
 import ldjam48.game.gui.inventory.InventorySlot;
 import ldjam48.game.items.Item;
+import ldjam48.game.node.NodeRocketBase;
 import ldjam48.game.screens.MainEndScene;
 import ldjam48.game.screens.MainGameScreen;
 
@@ -90,7 +92,21 @@ public class RocketMenu extends Gui {
         slot3.position.y = 150;
 
         addNode(slot3);
+
+        Button button = new Button("Flyaway", "Fly away with rocket", 128, 64, new ButtonEvent() {
+            @Override
+            public void onClick() {
+                NodeRocketBase nodeRocketBase = (NodeRocketBase) MainGameScreen.getInstance().scene.findNode("Node Rocket Base");
+
+                nodeRocketBase.sprite = new Sprite(TextureManager.rocket);
+                NodeRocketBase.flyAway = true;
+            }
+        });
+
+        addNode(button);
     }
+
+    public static boolean assembled = false;
 
     @Override
     public void update(SpriteBatch batch, float delta) {
@@ -104,10 +120,13 @@ public class RocketMenu extends Gui {
 
         batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
 
-        if(slot1.getItemInSlot() != null && slot2.getItemInSlot() != null && slot3.getItemInSlot() != null) {
+        if(slot1.getItemInSlot() != null && slot2.getItemInSlot() != null && slot3.getItemInSlot() != null && !assembled) {
             System.out.println("PASSED");
             if(slot1.getItemInSlot().getBlockType().getBlockId() == BlockType.MechanicalPart.getBlockId() && slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.MetalParts.getBlockId() && slot3.getItemInSlot().getBlockType().getBlockId() == BlockType.MagmaIngot.getBlockId()) {
-                MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
+                NodeRocketBase nodeRocketBase = (NodeRocketBase) MainGameScreen.getInstance().scene.findNode("Node Rocket Base");
+                //MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
+                nodeRocketBase.sprite = new Sprite(TextureManager.rocket_ramp2);
+                assembled = true;
             }
         }
 

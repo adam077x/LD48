@@ -47,6 +47,8 @@ public class NodePlayer extends NodeSprite {
 
     public static int drillLevel = 1;
 
+    public static boolean stop = false;
+
     public NodePlayer() {
         super("Player", TextureManager.playerBase, 32, 32);
         camera = new OrthographicCamera(640, 480);
@@ -145,22 +147,25 @@ public class NodePlayer extends NodeSprite {
                 sprite ++;
         }
         //super.update(batch, delta);
-        batch.draw(img, position.x + animationLeft - animationRight, position.y + animationDown - animationUp, 32, 32);
+        if(!stop) {
+            batch.draw(img, position.x + animationLeft - animationRight, position.y + animationDown - animationUp, 32, 32);
 
-        MainGameScreen.upgradeDrill = false;
+            MainGameScreen.upgradeDrill = false;
 
-        if(face == Face.DOWN) {
-            batch.draw(drillSprite, position.x, position.y - 32 + animationDown, 32, 32);
+            if(face == Face.DOWN) {
+                batch.draw(drillSprite, position.x, position.y - 32 + animationDown, 32, 32);
+            }
+            else if(face == Face.UP){
+                batch.draw(drillSprite, position.x, position.y + 32 - animationUp, 32, 32);
+            }
+            else if(face == Face.LEFT) {
+                batch.draw(drillSprite2, position.x - 32 + animationLeft, position.y, 32, 32);
+            }
+            else {
+                batch.draw(drillSprite2, position.x + 32 - animationRight, position.y, 32, 32);
+            }
         }
-        else if(face == Face.UP){
-            batch.draw(drillSprite, position.x, position.y + 32 - animationUp, 32, 32);
-        }
-        else if(face == Face.LEFT) {
-            batch.draw(drillSprite2, position.x - 32 + animationLeft, position.y, 32, 32);
-        }
-        else {
-            batch.draw(drillSprite2, position.x + 32 - animationRight, position.y, 32, 32);
-        }
+
         if(CoalStatus.coalLevel != 0)
         {
             if(Gdx.input.isKeyPressed(Input.Keys.A) && position.x > 0 && !isAnimationRunning()) {
@@ -252,6 +257,14 @@ public class NodePlayer extends NodeSprite {
         }
         else {
             animationRight = 0;
+        }
+
+        if(stop) {
+            MainGameScreen.hiddenMenuHint = true;
+            furnaceMenu.hidden = true;
+            storageMenu.hidden = true;
+            rocketMenu.hidden = true;
+            return;
         }
 
         MainGameScreen.hiddenMenuHint = false;

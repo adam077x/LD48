@@ -34,6 +34,9 @@ public class TextureManager {
     public static final Texture magmaBlock = new Texture("magma_block.png");
     public static final Texture magmaIngot = new Texture("magma_ingot.png");
     public static final Texture metalParts = new Texture("metal_parts.png");
+    public static final Texture rocket_ramp = new Texture("ramap_01.png");
+    public static final Texture rocket_ramp2 = new Texture("raketa_rampa01.png");
+    public static final Texture rocket = new Texture("raketa01.png");
 
     public static final Texture drills = new Texture("drills.png");
     public static TextureRegion[][] drillRegion = TextureRegion.split(drills, 16, 16);
