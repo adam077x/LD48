@@ -18,7 +18,7 @@ public class TextureManager {
     public static final Texture playerBase = new Texture("player_base.png");
     public static final Texture hills = new Texture("mountains.png");
     public static final Texture sandstone = new Texture("sandstone.png");
-    public static final Texture sand = new Texture("sand.png");
+    public static final Texture sand = new Texture("Sand.png");
     public static final Texture sandIron = new Texture("Sandiron.png");
     public static final Texture sandCoal = new Texture("Sandcoal.png");
     public static final Texture gold = new Texture("gold.png");

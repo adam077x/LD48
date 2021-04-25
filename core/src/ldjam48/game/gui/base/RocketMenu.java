@@ -64,14 +64,14 @@ public class RocketMenu extends Gui {
         magmaCraftingSlots = new CraftingSlots("Craft_Machine_Parts", this, "Create magma fuel", recipe2, new Vector2(0, -50));
 
         int[][] blocksIds3 = new int[3][2];
-        blocksIds2[0][0] = BlockType.IronIngot.getBlockId();
-        blocksIds2[0][1] = 4;
-        blocksIds2[1][0] = BlockType.SilverIngot.getBlockId();
-        blocksIds2[1][1] = 4;
-        blocksIds2[2][0] = BlockType.GoldIngot.getBlockId();
-        blocksIds2[2][1] = 4;
+        blocksIds3[0][0] = BlockType.IronIngot.getBlockId();
+        blocksIds3[0][1] = 4;
+        blocksIds3[1][0] = BlockType.SilverIngot.getBlockId();
+        blocksIds3[1][1] = 4;
+        blocksIds3[2][0] = BlockType.GoldIngot.getBlockId();
+        blocksIds3[2][1] = 4;
 
-        CraftingSlots.Recipe recipe3 = new CraftingSlots.Recipe(blocksIds2, new Item(BlockType.MetalParts, 1));
+        CraftingSlots.Recipe recipe3 = new CraftingSlots.Recipe(blocksIds3, new Item(BlockType.MetalParts, 1));
 
         metalCraftingSlots = new CraftingSlots("Craft_Metal_Parts", this, "Create metal parts", recipe3, new Vector2(0, -100));
 
