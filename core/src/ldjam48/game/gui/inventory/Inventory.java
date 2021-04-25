@@ -50,6 +50,10 @@ public class Inventory extends Gui {
         TrashSlot trashSlot = (TrashSlot)this.addNode(new TrashSlot("Trash", TextureManager.inventory));
         trashSlot.position.y = 0;
         trashSlot.position.x = Gdx.graphics.getWidth() - tileSize;
+
+        addItem(new Item(BlockType.MagmaIngot, 1));
+        addItem(new Item(BlockType.MechanicalPart, 1));
+        addItem(new Item(BlockType.MetalParts, 1));
     }
 
     public void addItem(Item item)

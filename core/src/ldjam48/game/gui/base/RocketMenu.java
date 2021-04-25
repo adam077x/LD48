@@ -1,6 +1,7 @@
 package ldjam48.game.gui.base;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,11 +11,14 @@ import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.Gui;
 import ldjam48.game.gui.GuiComponent;
+import ldjam48.game.gui.components.BackgroundSlot;
 import ldjam48.game.gui.components.Button;
 import ldjam48.game.gui.components.ButtonEvent;
 import ldjam48.game.gui.components.CraftingSlots;
 import ldjam48.game.gui.inventory.InventorySlot;
 import ldjam48.game.items.Item;
+import ldjam48.game.screens.MainEndScene;
+import ldjam48.game.screens.MainGameScreen;
 
 public class RocketMenu extends Gui {
     public static boolean hidden = true;
@@ -23,6 +27,10 @@ public class RocketMenu extends Gui {
     private CraftingSlots craftingSlots;
     private CraftingSlots magmaCraftingSlots;
     private CraftingSlots metalCraftingSlots;
+
+    BackgroundSlot slot1;
+    BackgroundSlot slot2;
+    BackgroundSlot slot3;
 
     public RocketMenu() {
         super("Rocket Menu");
@@ -64,6 +72,24 @@ public class RocketMenu extends Gui {
         CraftingSlots.Recipe recipe3 = new CraftingSlots.Recipe(blocksIds2, new Item(BlockType.MetalParts, 1));
 
         metalCraftingSlots = new CraftingSlots("Craft_Metal_Parts", this, "Create metal parts", recipe3, new Vector2(0, -100));
+
+        slot1 = new BackgroundSlot("5555", TextureManager.mechanicalPart);
+        slot1.position.x = 79;
+        slot1.position.y = 150;
+
+        addNode(slot1);
+
+        slot2 = new BackgroundSlot("6666", TextureManager.metalParts);
+        slot2.position.x = 79 + 50;
+        slot2.position.y = 150;
+
+        addNode(slot2);
+
+        slot3 = new BackgroundSlot("7777", TextureManager.magmaIngot);
+        slot3.position.x = 79 + 100;
+        slot3.position.y = 150;
+
+        addNode(slot3);
     }
 
     @Override
@@ -77,6 +103,13 @@ public class RocketMenu extends Gui {
         font.draw(batch,name,Gdx.graphics.getWidth() / 2  - glyphLayout.width/2, Gdx.graphics.getHeight() / 2 - 125 + 50+250);
 
         batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
+
+        if(slot1.getItemInSlot() != null && slot2.getItemInSlot() != null && slot3.getItemInSlot() != null) {
+            System.out.println("PASSED");
+            if(slot1.getItemInSlot().getBlockType().getBlockId() == BlockType.MechanicalPart.getBlockId() && slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.MetalParts.getBlockId() && slot3.getItemInSlot().getBlockType().getBlockId() == BlockType.MagmaIngot.getBlockId()) {
+                MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
+            }
+        }
 
         super.update(batch, delta);
      }
