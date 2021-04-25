@@ -14,7 +14,6 @@ public class TextureManager {
     public static final Texture player = new Texture("player.png");
     public static final Texture bedrock = new Texture("bedrock.png");
     public static final Texture iron = new Texture("iron.png");
-    public static final Texture factory = new Texture("factory.png");
     public static final Texture coal_ore =  new Texture("coal_ore.png");
     public static final Texture playerBase = new Texture("player_base.png");
     public static final Texture hills = new Texture("mountains.png");
@@ -35,13 +34,15 @@ public class TextureManager {
     public static final Texture magmaIngot = new Texture("magma_ingot.png");
 
     public static final Texture drills = new Texture("drills.png");
+
     public static TextureRegion[][] drillRegion = TextureRegion.split(drills, 16, 16);
 
 
     //Buildings
     public static final Texture storage = new Texture("storage.png");
-
-
+    public static final Texture garage = new Texture("garage.png");
+    public static final Texture factory = new Texture("factory.png");
+    public static final Texture furnace = new Texture("furnace.png");
 
     //Player
     public static final Texture player_rotated = new Texture("player_rotated.png");

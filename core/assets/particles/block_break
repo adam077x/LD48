@@ -1,0 +1,1529 @@
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: -69.0
+highMax: -69.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 100.0
+highMax: 100.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 70.0
+highMax: 70.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 130.0
+highMax: 130.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 140.0
+highMax: 140.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 230.0
+highMax: 230.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 250.0
+highMax: 250.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 280.0
+highMax: 280.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+
+
+Untitled
+- Delay -
+active: false
+- Duration - 
+lowMin: 1006.0
+lowMax: 1006.0
+- Count - 
+min: 0
+max: 3
+- Emission - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 55.0
+highMax: 55.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Life - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 515.0
+highMax: 515.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+independent: false
+- Life Offset - 
+active: false
+independent: false
+- X Offset - 
+active: false
+- Y Offset - 
+active: false
+- Spawn Shape - 
+shape: point
+- Spawn Width - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Spawn Height - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 0.0
+highMax: 0.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- X Scale - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 32.0
+highMax: 32.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Y Scale - 
+active: false
+- Velocity - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 129.0
+highMax: 129.0
+relative: false
+scalingCount: 1
+scaling0: 0.627451
+timelineCount: 1
+timeline0: 0.0
+- Angle - 
+active: true
+lowMin: 0.0
+lowMax: 0.0
+highMin: 140.0
+highMax: 140.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Rotation - 
+active: true
+lowMin: 15.0
+lowMax: 15.0
+highMin: 37.0
+highMax: 37.0
+relative: true
+scalingCount: 3
+scaling0: 0.6797753
+scaling1: 0.6573034
+scaling2: 0.36516854
+timelineCount: 3
+timeline0: 0.0
+timeline1: 0.4914611
+timeline2: 0.6622391
+- Wind - 
+active: false
+- Gravity - 
+active: false
+- Tint - 
+colorsCount: 12
+colors0: 0.8
+colors1: 0.8
+colors2: 0.8
+colors3: 0.28627452
+colors4: 0.25882354
+colors5: 0.25882354
+colors6: 0.6
+colors7: 0.6
+colors8: 0.6
+colors9: 0.8
+colors10: 0.8
+colors11: 0.8
+timelineCount: 4
+timeline0: 0.0
+timeline1: 0.5163511
+timeline2: 0.66092944
+timeline3: 1.0
+- Transparency - 
+lowMin: 0.0
+lowMax: 0.0
+highMin: 1.0
+highMax: 1.0
+relative: false
+scalingCount: 1
+scaling0: 1.0
+timelineCount: 1
+timeline0: 0.0
+- Options - 
+attached: false
+continuous: false
+aligned: false
+additive: true
+behind: false
+premultipliedAlpha: false
+spriteMode: single
+- Image Paths -
+particle_stone.png
+

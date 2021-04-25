@@ -83,10 +83,10 @@ public class MainGameScreen implements Screen {
         }
 
         nodeBase = new NodeBase();
-        nodeBase.position.y = 190;
+        nodeBase.position.y = 192;
 
         nodeFurnace  = new NodeFurnace();
-        nodeFurnace.position.y = 191;
+        nodeFurnace.position.y = 192;
         nodeFurnace.position.x = 680;
         scene.addNode(nodeBase);
         scene.addNode(nodeFurnace);

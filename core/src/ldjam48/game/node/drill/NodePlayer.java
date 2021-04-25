@@ -3,9 +3,8 @@ package ldjam48.game.node.drill;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.*;
+import com.badlogic.gdx.graphics.g3d.particles.emitters.Emitter;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.Game;
@@ -47,6 +46,8 @@ public class NodePlayer extends NodeSprite {
 
     public static int drillLevel = 1;
 
+    private ParticleEffect particleEffect = new ParticleEffect();
+
     public NodePlayer() {
         super("Player", TextureManager.playerBase, 32, 32);
         camera = new OrthographicCamera(640, 480);
@@ -82,6 +83,8 @@ public class NodePlayer extends NodeSprite {
 
         //Load animation
 
+        particleEffect.load(Gdx.files.internal("particles/block_break"), Gdx.files.internal(""));
+        particleEffect.start();
 
 
         for(int i = 0; i < 4; i++)
@@ -145,6 +148,8 @@ public class NodePlayer extends NodeSprite {
                 sprite ++;
         }
         //super.update(batch, delta);
+        particleEffect.update(delta);
+        particleEffect.draw(batch);
         batch.draw(img, position.x + animationLeft - animationRight, position.y + animationDown - animationUp, 32, 32);
 
         MainGameScreen.upgradeDrill = false;
@@ -287,6 +292,10 @@ public class NodePlayer extends NodeSprite {
         }else if(Gdx.input.isKeyJustPressed(Input.Keys.F3))
         {
             MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
+        }else if(Gdx.input.isKeyJustPressed(Input.Keys.F4))
+        {
+
+            NodeClickRender.setIsFlaming(!NodeClickRender.isFlaming);
         }
     }
 
@@ -379,6 +388,12 @@ public class NodePlayer extends NodeSprite {
             return;
         }
 
+
+        for(ParticleEmitter emitter : particleEffect.getEmitters())
+        {
+            emitter.setPosition(x+16,y+16);
+        }
+        particleEffect.reset();
         blockMined ++;
         MainGameScreen.statistics.put("blocks_mined", blockWalked);
 
