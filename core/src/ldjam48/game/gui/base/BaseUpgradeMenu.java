@@ -23,22 +23,58 @@ public class BaseUpgradeMenu extends Gui {
 
     private BitmapFont font = new BitmapFont();
 
+    int item = 0;
+
     public BaseUpgradeMenu() {
         super("Upgrade Garage");
+
+        slot1 = new SlotNamed(0, "Irons (8x)");
+        slot1.position.x = 100;
+        slot1.position.y = 300;
+        addNode(slot1);
+
+        if(NodePlayer.drillLevel == 1) {
+            item = BlockType.Iron_Ingot.getBlockId();
+            slot1.name = "Iron (16x)";
+        }
+        else if(NodePlayer.drillLevel == 2) {
+            item = BlockType.Gold.getBlockId();
+
+            slot1.name = "Gold (16x)";
+        }
+        else if(NodePlayer.drillLevel == 3) {
+            item = BlockType.Diamond.getBlockId();
+
+            slot1.name = "Diamond (16x)";
+        }
 
         upgrade = new Button("upgrade", "Upgrade Drill", 128, 64, new ButtonEvent() {
             @Override
             public void onClick() {
                 if(slot1.getItemInSlot() != null) {
-                    System.out.println(slot1.getItemInSlot().getBlockType().getBlockId());
-                    if (slot1.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot1.getItemInSlot().getItemAmount() >= 8) {
+                    if (slot1.getItemInSlot().getBlockType().getBlockId() == item && slot1.getItemInSlot().getItemAmount() >= 16 && NodePlayer.drillLevel < 4) {
                         NodePlayer.drillLevel++;
                         //slot.setItemInSlot(null);
-                        slot1.getItemInSlot().setItemAmount(slot1.getItemInSlot().getItemAmount() - 8);
+                        slot1.getItemInSlot().setItemAmount(slot1.getItemInSlot().getItemAmount() - 16);
                         if(slot1.getItemInSlot().getItemAmount() <= 0) {
                             slot1.setItemInSlot(null);
                         }
                     }
+                }
+
+                if(NodePlayer.drillLevel == 1) {
+                    item = BlockType.Iron_Ingot.getBlockId();
+                    slot1.name = "Iron (16x)";
+                }
+                else if(NodePlayer.drillLevel == 2) {
+                    item = BlockType.Gold.getBlockId();
+
+                    slot1.name = "Gold (16x)";
+                }
+                else if(NodePlayer.drillLevel == 3) {
+                    item = BlockType.Diamond.getBlockId();
+
+                    slot1.name = "Diamond (16x)";
                 }
             }
         });
@@ -66,11 +102,6 @@ public class BaseUpgradeMenu extends Gui {
         upgradeFuelStorage.position.x = Gdx.graphics.getWidth() / 2 - 150;
         upgradeFuelStorage.position.y = Gdx.graphics.getHeight() / 2 - 30;
         addNode(upgradeFuelStorage);
-
-        slot1 = new SlotNamed(0, "Irons (8x)");
-        slot1.position.x = 100;
-        slot1.position.y = 300;
-        addNode(slot1);
 
         slot2 = new SlotNamed(1, "Irons (10x)");
         slot2.position.x = Gdx.graphics.getWidth() / 2 - 220;

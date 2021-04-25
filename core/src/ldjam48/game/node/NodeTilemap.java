@@ -38,35 +38,53 @@ public class NodeTilemap extends Node {
                 else if(i == 0) {
                     setTileByPosition(j, i, BlockType.Bedrock.getBlockId());
                 }
-                else if(i > height-50)
+                else if(i > height-25)
                 {
                     setTileByPosition(j, i, BlockType.Sandstone.getBlockId());
 
                     int r = MainGameScreen.getInstance().random.nextInt(100);
 
-                    if(r >= 92 && r < 97)
+                    if(r >= 89 && r < 96)
                     {
                         setTileByPosition(j, i, BlockType.Sandcoal.getBlockId());
                     }
-                    if(r >= 98)
+                    if(r >= 97)
                     {
                         setTileByPosition(j, i, BlockType.Sandiron.getBlockId());
                     }
                 }
-                else if(i <= height-50)
+                else if(i <= height-25 && i > height-50)
                 {
                     setTileByPosition(j, i, BlockType.Stone.getBlockId());
 
                     int r = MainGameScreen.getInstance().random.nextInt(100);
 
-                    if(r >= 95 && r < 98)
+                    if(r >= 94 && r < 97)
                     {
                         setTileByPosition(j, i, BlockType.Silver.getBlockId());
                     }
-                    if(r >= 99)
+                    if(r >= 98)
                     {
                         setTileByPosition(j, i, BlockType.Gold.getBlockId());
                     }
+                }
+                else if(i <= height-50 && i > height-100)
+                {
+                    setTileByPosition(j, i, BlockType.Blackstone.getBlockId());
+
+                    int r = MainGameScreen.getInstance().random.nextInt(1000);
+
+                    if(r >= 995)
+                    {
+                        setTileByPosition(j, i, BlockType.Diamond_Ore.getBlockId());
+                    }
+                }
+                else if(i <= height-100)
+                {
+                    int r = MainGameScreen.getInstance().random.nextInt(100);
+                    //int r2 = MainGameScreen.getInstance().random.nextInt(3);
+
+                    setTileByPosition(j, i, BlockType.LavaBlackstone.getBlockId());
                 }
             }
         }
@@ -78,11 +96,14 @@ public class NodeTilemap extends Node {
                 arrayMapBackground[i] = BlockType.Sandstone.getBlockId();
             if(arrayMapBackground[i] == BlockType.Sandcoal.getBlockId())
                 arrayMapBackground[i] = BlockType.Sandstone.getBlockId();
-
             if(arrayMapBackground[i] == BlockType.Iron.getBlockId())
                 arrayMapBackground[i] = BlockType.Stone.getBlockId();
             if(arrayMapBackground[i] == BlockType.Gold.getBlockId())
                 arrayMapBackground[i] = BlockType.Stone.getBlockId();
+            if(arrayMapBackground[i] == BlockType.Silver.getBlockId())
+                arrayMapBackground[i] = BlockType.Stone.getBlockId();
+            if(arrayMapBackground[i] == BlockType.Diamond_Ore.getBlockId())
+                arrayMapBackground[i] = BlockType.Blackstone.getBlockId();
         }
     }
 

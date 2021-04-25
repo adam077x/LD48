@@ -277,6 +277,14 @@ public class NodePlayer extends NodeSprite {
         }
 
         camera.update();
+
+        if(Gdx.input.isKeyJustPressed(Input.Keys.F1)) {
+            drillLevel++;
+        }
+        else if(Gdx.input.isKeyJustPressed(Input.Keys.F2)) {
+            CoalStatus.coalLevel = 100000;
+            CoalStatus.maxCoalLevel = 100000;
+        }
     }
 
     private void showStorageMenu() {

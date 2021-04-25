@@ -1,5 +1,6 @@
 package ldjam48.game.screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -96,6 +97,8 @@ public class MainGameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        System.out.println(Gdx.graphics.getFramesPerSecond());
+
         ScreenUtils.clear(0.8f, 0.8f, 1, 1);
 
         OrthographicCamera tmpCamera = nodePlayer.camera;

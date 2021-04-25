@@ -26,6 +26,10 @@ public class TextureManager {
     public static final Texture silver = new Texture("silver.png");
     public static final Texture button = new Texture("button.png");
     public static final Texture buttonFlash = new Texture("button_flash.png");
+    public static final Texture blackstone = new Texture("blackstone.png");
+    public static final Texture lavaBlackstone = new Texture("lavablackstone.png");
+    public static final Texture diamondOre = new Texture("diamond_ore.png");
+    public static final Texture diamond = new Texture("diamond.png");
 
 
     public static final Texture drills = new Texture("drills.png");

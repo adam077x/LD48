@@ -11,7 +11,7 @@ import ldjam48.game.node.NodeClickRender;
 public class SlotNamed extends Slot implements NamedSlot {
     int id = 0;
 
-    private String name;
+    public String name;
     public SlotNamed(int id, String name) {
         super("Base_" + id, TextureManager.inventory);
         this.id = id;

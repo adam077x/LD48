@@ -10,8 +10,8 @@ import ldjam48.game.gui.Gui;
 
 public class CoalStatus extends Gui {
 
-    public static int coalLevel = 1000;
-    public static int maxCoalLevel = 1000;
+    public static int coalLevel = 500;
+    public static int maxCoalLevel = 500;
     public CoalStatus() {
         super("Coal_Status");
     }
@@ -33,5 +33,9 @@ public class CoalStatus extends Gui {
         font.setColor(Color.BLACK);
         font.draw(batch, coalLevel + "/" +maxCoalLevel,21, Gdx.graphics.getHeight()-43);
         font.draw(batch, "Fuel",21, Gdx.graphics.getHeight()-2);
+
+        if(coalLevel > maxCoalLevel) {
+            coalLevel = maxCoalLevel;
+        }
     }
 }

@@ -34,7 +34,7 @@ public class Hint extends Gui {
     public void update(SpriteBatch batch, float delta) {
         if(hidden) return;
 
-        batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
+        //batch.draw(TextureManager.backgroundGui, Gdx.graphics.getWidth() / 2 - 250, Gdx.graphics.getHeight() / 2 - 125, 500, 250);
         batch.setColor(Color.WHITE);
 
 
@@ -45,7 +45,7 @@ public class Hint extends Gui {
             GlyphLayout glyphLayout = new GlyphLayout();
             glyphLayout.setText(font, t.get(i));
             font.getData().setScale(2,2);
-            font.draw(batch,t.get(i), position.x+width/2 - (glyphLayout.width/2), position.y + height/2 + 100 - (glyphLayout.height - 25));
+            font.draw(batch,t.get(i), position.x+width/2 - (glyphLayout.width/2) + 100, position.y + height/2 - 100 - (glyphLayout.height - 25));
         }
 
         super.update(batch, delta);
