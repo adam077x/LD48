@@ -21,6 +21,8 @@ public class Button extends GuiComponent {
 
     private int clicked = 0;
 
+    public int offset = 4;
+
     public Button(String id, String text, int width, int height, ButtonEvent event) {
         super("Button_" + id);
         this.event = event;
@@ -56,6 +58,6 @@ public class Button extends GuiComponent {
         else {
             batch.draw(texture2, position.x, position.y, width, height);
         }
-        font.draw(batch, text, position.x + width/2 - text.length() * 4, position.y + height/2 + 5);
+        font.draw(batch, text, position.x + width/2 - text.length() * offset, position.y + height/2 + 5);
     }
 }

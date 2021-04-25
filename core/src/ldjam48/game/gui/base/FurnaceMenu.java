@@ -23,16 +23,15 @@ public class FurnaceMenu extends Gui {
         super("Furnace");
 
         int x = Gdx.graphics.getWidth() / 2 - 250;
-        int y = Gdx.graphics.getHeight() / 2 - 125;
-        final SlotNamed baseSlot = new SlotNamed(1,"Coal(1x)");
+        int y = Gdx.graphics.getHeight() / 2 - 0;
+        final SlotNamed baseSlot = new SlotNamed(1,"Coal");
         baseSlot.position = new Vector2(x  + 5+10+10, y + 5);
 
-        final SlotNamed ironSlot = new SlotNamed(2, "Iron(1x)");
+        final SlotNamed ironSlot = new SlotNamed(2, "Ore");
         ironSlot.position = new Vector2(x + 25, y + 5 + 50);
 
-
         final OneWaySlot oneWaySlot = new OneWaySlot(3);
-        oneWaySlot.position = new Vector2(x + 275, y + 5);
+        oneWaySlot.position = new Vector2(x + 100, y + 35);
 
         this.addNode(ironSlot);
         this.addNode(oneWaySlot);
@@ -75,8 +74,8 @@ public class FurnaceMenu extends Gui {
             }
         });
 
-        smeltButton.position.x = 200;
-        smeltButton.position.y = 200;
+        smeltButton.position.x = Gdx.graphics.getWidth() / 2 - 100;
+        smeltButton.position.y = 260;
 
         addNode(smeltButton);
         addNode(baseSlot);

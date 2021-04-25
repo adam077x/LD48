@@ -22,6 +22,7 @@ public class RocketMenu extends Gui {
     private BitmapFont font = new BitmapFont();
     private CraftingSlots craftingSlots;
     private CraftingSlots magmaCraftingSlots;
+    private CraftingSlots metalCraftingSlots;
 
     public RocketMenu() {
         super("Rocket Menu");
@@ -38,6 +39,8 @@ public class RocketMenu extends Gui {
 
         craftingSlots = new CraftingSlots("Craft_Machine_Parts", this, "Create mechanical parts", recipe, new Vector2(0, 0));
 
+        craftingSlots.button.offset = 3;
+
         int[][] blocksIds2 = new int[3][2];
         blocksIds2[0][0] = BlockType.MagmaBlock.getBlockId();
         blocksIds2[0][1] = 8;
@@ -49,6 +52,18 @@ public class RocketMenu extends Gui {
         CraftingSlots.Recipe recipe2 = new CraftingSlots.Recipe(blocksIds2, new Item(BlockType.MagmaIngot, 1));
 
         magmaCraftingSlots = new CraftingSlots("Craft_Machine_Parts", this, "Create magma fuel", recipe2, new Vector2(0, -50));
+
+        int[][] blocksIds3 = new int[3][2];
+        blocksIds2[0][0] = BlockType.IronIngot.getBlockId();
+        blocksIds2[0][1] = 8;
+        blocksIds2[1][0] = BlockType.SilverIngot.getBlockId();
+        blocksIds2[1][1] = 8;
+        blocksIds2[2][0] = BlockType.GoldIngot.getBlockId();
+        blocksIds2[2][1] = 8;
+
+        CraftingSlots.Recipe recipe3 = new CraftingSlots.Recipe(blocksIds2, new Item(BlockType.MetalParts, 1));
+
+        metalCraftingSlots = new CraftingSlots("Craft_Metal_Parts", this, "Create metal parts", recipe3, new Vector2(0, -100));
     }
 
     @Override

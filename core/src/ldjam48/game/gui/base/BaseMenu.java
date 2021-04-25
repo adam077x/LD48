@@ -21,10 +21,10 @@ public class BaseMenu extends Gui {
     public BaseMenu() {
         super("Refuel Station");
 
-        int x = Gdx.graphics.getWidth() / 2 - 250;
-        int y = Gdx.graphics.getHeight() / 2 - 125;
+        int x = 100;
+        int y = Gdx.graphics.getHeight() / 2;
         final SlotNamed baseSlot = new SlotNamed(1,"Coal(5x)");
-        baseSlot.position = new Vector2(x  + 5+10+10, y + 5);
+        baseSlot.position = new Vector2(110, 290);
 
         fuelButton = new Button("Fuel", "Add Fuel", 128, 64, new ButtonEvent() {
             @Override
@@ -41,7 +41,7 @@ public class BaseMenu extends Gui {
         });
 
         fuelButton.position.x = 200;
-        fuelButton.position.y = 200;
+        fuelButton.position.y = 280;
 
         addNode(fuelButton);
         addNode(baseSlot);
