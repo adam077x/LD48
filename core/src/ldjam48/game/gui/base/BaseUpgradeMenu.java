@@ -34,7 +34,7 @@ public class BaseUpgradeMenu extends Gui {
         addNode(slot1);
 
         if(NodePlayer.drillLevel == 1) {
-            item = BlockType.Iron_Ingot.getBlockId();
+            item = BlockType.IronIngot.getBlockId();
             slot1.name = "Iron (16x)";
         }
         else if(NodePlayer.drillLevel == 2) {
@@ -63,11 +63,11 @@ public class BaseUpgradeMenu extends Gui {
                 }
 
                 if(NodePlayer.drillLevel == 1) {
-                    item = BlockType.Iron_Ingot.getBlockId();
+                    item = BlockType.IronIngot.getBlockId();
                     slot1.name = "Iron (16x)";
                 }
                 else if(NodePlayer.drillLevel == 2) {
-                    item = BlockType.Gold.getBlockId();
+                    item = BlockType.GoldIngot.getBlockId();
 
                     slot1.name = "Gold (16x)";
                 }

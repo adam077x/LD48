@@ -22,7 +22,11 @@ public enum BlockType {
     LavaBlackstone(15, "LavaBlackstone", new BlockMeta(false, false, TextureManager.lavaBlackstone, 3)),
     Diamond_Ore(16, "Diamond_Ore", new BlockMeta(false, false, TextureManager.diamondOre, 3).addCustomMeta("drop", 17)),
     Diamond(17, "Diamond", new BlockMeta(false, false, TextureManager.diamond, 3)),
-    Iron_Ingot(18, "Iron Ingot", new BlockMeta(false, false, TextureManager.iron_ingot, 0));
+    IronIngot(18, "Iron Ingot", new BlockMeta(false, false, TextureManager.iron_ingot, 0)),
+    GoldIngot(19,"Gold Ingot", new BlockMeta(false, false, TextureManager.gold_ingot, 0)),
+    SilverIngot(20, "Silver Ingot", new BlockMeta(false, false, TextureManager.silver_ingot,0));
+
+
 
     private int blockId;
     private String blockName;

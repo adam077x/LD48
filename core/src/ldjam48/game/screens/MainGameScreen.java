@@ -92,6 +92,7 @@ public class MainGameScreen implements Screen {
 
         gui.addNode(new CoalStatus());
         gui.addNode(new Hint()) ;
+        gui.addNode(new NodeTimer());
         gui.addNode(new GameOver());
     }
 

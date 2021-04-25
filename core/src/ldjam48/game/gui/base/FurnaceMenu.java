@@ -43,18 +43,24 @@ public class FurnaceMenu extends Gui {
             public void onClick() {
                 if(baseSlot.getItemInSlot() == null || ironSlot.getItemInSlot() == null)
                     return;
-                if (baseSlot.getItemInSlot().getBlockType().getBlockId() == BlockType.Coal.getBlockId() && baseSlot.getItemInSlot().getItemAmount() >= 1) {
-                    if(ironSlot.getItemInSlot().getBlockType().getBlockId() == BlockType.Iron.getBlockId() || ironSlot.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId())
-                    {
+
                         baseSlot.getItemInSlot().setItemAmount(baseSlot.getItemInSlot().getItemAmount() - 1);
                         ironSlot.getItemInSlot().setItemAmount(ironSlot.getItemInSlot().getItemAmount() - 1);
 
                         if(oneWaySlot.getItemInSlot() == null)
                         {
-                            oneWaySlot.setItemInSlot(new Item(BlockType.Iron_Ingot, 1));
+                            oneWaySlot.setItemInSlot(new Item(getSmeltResult(ironSlot.getItemInSlot().getBlockType()),1));
                         }else
                         {
-                            oneWaySlot.getItemInSlot().setItemAmount(oneWaySlot.getItemInSlot().getItemAmount() + 1);
+                            if(getSmeltResult(ironSlot.getItemInSlot().getBlockType()) == oneWaySlot.getItemInSlot().getBlockType())
+                            {
+                                oneWaySlot.getItemInSlot().setItemAmount(oneWaySlot.getItemInSlot().getItemAmount() + 1);
+                            }
+                            else
+                            {
+                                baseSlot.getItemInSlot().setItemAmount(baseSlot.getItemInSlot().getItemAmount() + 1);
+                                ironSlot.getItemInSlot().setItemAmount(ironSlot.getItemInSlot().getItemAmount() + 1);
+                            }
                         }
                         if (baseSlot.getItemInSlot().getItemAmount() <= 0) {
                             baseSlot.setItemInSlot(null);
@@ -64,8 +70,8 @@ public class FurnaceMenu extends Gui {
                         }
 
 
-                    }
-                }
+
+
             }
         });
 
@@ -76,6 +82,21 @@ public class FurnaceMenu extends Gui {
         addNode(baseSlot);
     }
 
+    public BlockType getSmeltResult(BlockType ore)
+    {
+        switch (ore)
+        {
+            case Iron:
+                return BlockType.IronIngot;
+            case Sandiron:
+                return BlockType.IronIngot;
+            case Silver:
+                return BlockType.SilverIngot;
+            case Gold:
+                return BlockType.GoldIngot;
+        }
+        return BlockType.Air;
+    }
     public static boolean isHidden() {
         return hidden;
     }

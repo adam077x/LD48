@@ -59,5 +59,7 @@ public class TextureManager {
     //Items
     public static final Texture coal = new Texture("coal.png");
     public static final Texture iron_ingot = new Texture("iron_ingot.png");
+    public static final Texture silver_ingot = new Texture("silver_ingot.png");
+    public static final Texture gold_ingot = new Texture("gold_ingot.png");
 
 }
