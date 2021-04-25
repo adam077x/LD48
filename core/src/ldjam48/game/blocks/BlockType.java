@@ -17,7 +17,8 @@ public enum BlockType {
     Sandcoal(10, "Sandcoal", new BlockMeta(true, false, TextureManager.sandCoal, 1).addCustomMeta("drop", 13)),
     Silver(11, "Silver", new BlockMeta(true, false, TextureManager.silver, 2)),
     Gold(12, "Gold", new BlockMeta(true, false, TextureManager.gold, 2)),
-    Coal(13, "Coal", new BlockMeta(false, false, TextureManager.coal, 0));
+    Coal(13, "Coal", new BlockMeta(false, false, TextureManager.coal, 0)),
+    Iron_Ingot(14, "Iron Ingot", new BlockMeta(false, false, TextureManager.iron_ingot, 0));
 
     private int blockId;
     private String blockName;
@@ -44,5 +45,6 @@ public enum BlockType {
     public String getBlockName() {
         return blockName;
     }
+
 
 }

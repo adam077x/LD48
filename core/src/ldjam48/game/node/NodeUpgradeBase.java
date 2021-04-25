@@ -1,13 +1,12 @@
 package ldjam48.game.node;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import ldjam48.game.TextureManager;
 
 public class NodeUpgradeBase extends NodeSprite {
     public NodeUpgradeBase() {
-        super("Upgrade Base", TextureManager.base, 156, 128);
+        super("Upgrade Base", TextureManager.factory, 156, 128);
     }
 
     @Override

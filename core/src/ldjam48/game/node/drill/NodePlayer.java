@@ -2,21 +2,17 @@ package ldjam48.game.node.drill;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.utils.compression.lzma.Base;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.base.BaseMenu;
 import ldjam48.game.gui.base.BaseUpgradeMenu;
+import ldjam48.game.gui.base.FurnaceMenu;
 import ldjam48.game.gui.base.StorageMenu;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
@@ -32,6 +28,7 @@ public class NodePlayer extends NodeSprite {
     private NodeTilemap nodeTilemap;
     private NodeBase nodeBase;
     private BaseMenu baseMenu;
+    private FurnaceMenu furnaceMenu;
     private StorageMenu storageMenu;
     private BaseUpgradeMenu baseUpgradeMenu;
     private NodeUpgradeBase nodeUpgradeBase;
@@ -63,6 +60,7 @@ public class NodePlayer extends NodeSprite {
         nodeBase = (NodeBase)MainGameScreen.scene.findNode("Base");
         nodeBase.position.y = 191;
         baseMenu = (BaseMenu) MainGameScreen.gui.addNode(new BaseMenu());
+        MainGameScreen.gui.addNode(this.furnaceMenu  = new FurnaceMenu());
         storageMenu = (StorageMenu) MainGameScreen.gui.addNode(new StorageMenu());
         //TODO: move to MainGameScene
         baseUpgradeMenu = (BaseUpgradeMenu) MainGameScreen.gui.addNode(new BaseUpgradeMenu());
@@ -265,6 +263,7 @@ public class NodePlayer extends NodeSprite {
         showBaseMenu();
         showStorageMenu();
         showBaseUpgradeMenu();
+        showFurnaceMenu();
 
         camera.position.x = position.x - animationRight + animationLeft;
         camera.position.y = position.y + animationDown - animationUp;
@@ -290,6 +289,22 @@ public class NodePlayer extends NodeSprite {
         }
         else if(!nodeStorage.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !storageMenu.hidden){
             storageMenu.hidden = true;
+        }
+    }
+
+
+    private void showFurnaceMenu() {
+
+        NodeFurnace nodeFurnace = MainGameScreen.getInstance().nodeFurnace;
+        if(nodeFurnace.getRectangle().overlaps(getReactangle())) {
+            MainGameScreen.hiddenMenuHint = true;
+        }
+
+        if(nodeFurnace.getRectangle().overlaps(getReactangle()) && Gdx.input.isKeyJustPressed(Input.Keys.E) && furnaceMenu.hidden) {
+            furnaceMenu.hidden = false;
+        }
+        else if(!nodeFurnace.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !furnaceMenu.hidden){
+            furnaceMenu.hidden = true;
         }
     }
 

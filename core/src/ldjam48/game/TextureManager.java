@@ -14,7 +14,7 @@ public class TextureManager {
     public static final Texture player = new Texture("player.png");
     public static final Texture bedrock = new Texture("bedrock.png");
     public static final Texture iron = new Texture("iron.png");
-    public static final Texture base = new Texture("base.png");
+    public static final Texture factory = new Texture("factory.png");
     public static final Texture coal_ore =  new Texture("coal_ore.png");
     public static final Texture playerBase = new Texture("player_base.png");
     public static final Texture hills = new Texture("mountains.png");
@@ -54,5 +54,6 @@ public class TextureManager {
 
     //Items
     public static final Texture coal = new Texture("coal.png");
+    public static final Texture iron_ingot = new Texture("iron_ingot.png");
 
 }

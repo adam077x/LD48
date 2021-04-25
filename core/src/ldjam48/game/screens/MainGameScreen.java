@@ -28,9 +28,11 @@ public class MainGameScreen implements Screen {
     public static Node scene;
     public static Node background;
     public static Node gui;
+
     public NodePlayer nodePlayer;
     public NodeBase nodeBase;
     public NodeTilemap tilemap;
+    public NodeFurnace nodeFurnace;
 
     private Inventory inventory;
 
@@ -73,7 +75,11 @@ public class MainGameScreen implements Screen {
         nodeBase = new NodeBase();
         nodeBase.position.y = 190;
 
+        nodeFurnace  = new NodeFurnace();
+        nodeFurnace.position.y = 191;
+        nodeFurnace.position.x = 680;
         scene.addNode(nodeBase);
+        scene.addNode(nodeFurnace);
 
         nodePlayer = new NodePlayer();
         nodePlayer.position.y = 192;
