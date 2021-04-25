@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import ldjam48.game.screens.MainGameScreen;
 import ldjam48.game.screens.MainMenuScreen;
+import ldjam48.game.screens.TutorialScene;
 
 public class Game extends com.badlogic.gdx.Game {
 	public SpriteBatch batch;

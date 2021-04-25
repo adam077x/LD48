@@ -75,19 +75,19 @@ public class RocketMenu extends Gui {
 
         metalCraftingSlots = new CraftingSlots("Craft_Metal_Parts", this, "Create metal parts", recipe3, new Vector2(0, -100));
 
-        slot1 = new BackgroundSlot("5555", TextureManager.mechanicalPart);
+        slot1 = new BackgroundSlot("5555", TextureManager.mechanicalPart, 1);
         slot1.position.x = 79;
         slot1.position.y = 150;
 
         addNode(slot1);
 
-        slot2 = new BackgroundSlot("6666", TextureManager.metalParts);
+        slot2 = new BackgroundSlot("6666", TextureManager.metalParts, 1);
         slot2.position.x = 79 + 50;
         slot2.position.y = 150;
 
         addNode(slot2);
 
-        slot3 = new BackgroundSlot("7777", TextureManager.magmaIngot);
+        slot3 = new BackgroundSlot("7777", TextureManager.magmaIngot, 1);
         slot3.position.x = 79 + 100;
         slot3.position.y = 150;
 
@@ -96,10 +96,10 @@ public class RocketMenu extends Gui {
         Button button = new Button("Flyaway", "Fly away with rocket", 175, 32, new ButtonEvent() {
             @Override
             public void onClick() {
-                NodeRocketBase nodeRocketBase = (NodeRocketBase) MainGameScreen.getInstance().scene.findNode("Node Rocket Base");
-
-                nodeRocketBase.sprite = new Sprite(TextureManager.rocket);
                 if(assembled) {
+                    NodeRocketBase nodeRocketBase = (NodeRocketBase) MainGameScreen.getInstance().scene.findNode("Node Rocket Base");
+
+                    nodeRocketBase.sprite = new Sprite(TextureManager.rocket);
                     NodeRocketBase.flyAway = true;
                 }
             }

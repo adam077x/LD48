@@ -395,11 +395,11 @@ public class NodePlayer extends NodeSprite {
             //GameOver.hidden = false;
             return;
         }
-        for(ParticleEmitter emitter : particleEffect.getEmitters())
+        /*for(ParticleEmitter emitter : particleEffect.getEmitters())
         {
             emitter.setPosition(x+16,y+16);
-        }
-        particleEffect.reset();
+        }*/
+        //particleEffect.reset();
         blockMined ++;
         MainGameScreen.statistics.put("blocks_mined", blockWalked);
 

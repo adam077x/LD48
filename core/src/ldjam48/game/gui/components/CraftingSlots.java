@@ -43,7 +43,7 @@ public class CraftingSlots extends GuiComponent {
         int y = Gdx.graphics.getHeight() / 2 - 125;
         for(int i = 0; i < 3; i++)
         {
-            BackgroundSlot inventorySlot = new BackgroundSlot(String.valueOf(i), BlockType.values()[recipe.blockIds[i][0]].getBlockMeta().getTexture());
+            BackgroundSlot inventorySlot = new BackgroundSlot(String.valueOf(i), BlockType.values()[recipe.blockIds[i][0]].getBlockMeta().getTexture(), recipe.blockIds[i][1]);
             inventorySlot.position.y = y + 32*6 + 9 + position.y;
             inventorySlot.position.x = x + ((i*32)+(18*i)) + 9 + position.x;
             inventorySlot.setWidth(32);

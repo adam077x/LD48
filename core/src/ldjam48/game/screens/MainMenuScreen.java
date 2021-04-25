@@ -53,7 +53,7 @@ public class MainMenuScreen implements Screen {
 
         if(Gdx.app.getInput().isKeyJustPressed(Input.Keys.ENTER) || Gdx.app.getInput().isKeyJustPressed(Input.Keys.SPACE)) {
             if(selection == 3) {
-                game.setScreen(new MainGameScreen(game));
+                game.setScreen(new TutorialScene(game));
             }
             else if(selection == 0) {
                 System.exit(0);
