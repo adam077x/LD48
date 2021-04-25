@@ -11,6 +11,8 @@ import ldjam48.game.gui.GuiComponent;
 import ldjam48.game.items.Item;
 import ldjam48.game.node.NodeClickRender;
 
+import static ldjam48.game.node.NodeClickRender.itemOnMouse;
+
 public class Slot extends GuiComponent {
 
     private BitmapFont font = new BitmapFont();
@@ -31,6 +33,17 @@ public class Slot extends GuiComponent {
                 if((Gdx.graphics.getHeight() - Gdx.input.getY()) > position.y && (Gdx.graphics.getHeight() - Gdx.input.getY()) < (position.y + height))
                 {
                     onClick();
+                }
+            }
+        }
+
+        if(Gdx.input.isButtonJustPressed(Input.Buttons.RIGHT))
+        {
+            if(Gdx.input.getX() > position.x && Gdx.input.getX() < (position.x + width))
+            {
+                if((Gdx.graphics.getHeight() - Gdx.input.getY()) > position.y && (Gdx.graphics.getHeight() - Gdx.input.getY()) < (position.y + height))
+                {
+                    onRightClick();
                 }
             }
         }
@@ -61,31 +74,66 @@ public class Slot extends GuiComponent {
         font.draw(batch, itemInSlot.getItemAmount() + "", position.x, position.y + 5);
     }
 
-
-    public void onClick()
-    {
-        if(NodeClickRender.itemOnMouse != null)
+    private void onRightClick() {
+        if(itemOnMouse != null)
         {
             if(itemInSlot != null)
             {
-                if(itemInSlot.getBlockType() == NodeClickRender.itemOnMouse.getBlockType())
+                if(itemInSlot.getBlockType() == itemOnMouse.getBlockType())
                 {
-                    if(itemInSlot.getItemAmount() + NodeClickRender.itemOnMouse.getItemAmount() <= 999)
+                    if(itemOnMouse.getItemAmount() + 1 <= 999)
                     {
-                        itemInSlot.setItemAmount(itemInSlot.getItemAmount() + NodeClickRender.itemOnMouse.getItemAmount());
-                        NodeClickRender.itemOnMouse = null;
+                        itemOnMouse.setItemAmount(itemOnMouse.getItemAmount() + 1);
+                        itemInSlot.setItemAmount(itemInSlot.getItemAmount() - 1);
+                        if(itemInSlot.getItemAmount() <= 0)
+                        {
+                            itemInSlot = null;
+                        }
                         return;
                     }
                 }
             }else {
-                itemInSlot = NodeClickRender.itemOnMouse;
-                NodeClickRender.itemOnMouse = null;
+                return;
             }
         }else
         {
             if(itemInSlot == null)
                 return;
-            NodeClickRender.itemOnMouse = itemInSlot;
+
+            itemOnMouse = new Item(itemInSlot.getBlockType(), 1);
+            itemInSlot.setItemAmount(itemInSlot.getItemAmount() - 1);
+            if(itemInSlot.getItemAmount() <= 0)
+            {
+                itemInSlot = null;
+            }
+        }
+    }
+
+
+    public void onClick()
+    {
+        if(itemOnMouse != null)
+        {
+            if(itemInSlot != null)
+            {
+                if(itemInSlot.getBlockType() == itemOnMouse.getBlockType())
+                {
+                    if(itemInSlot.getItemAmount() + itemOnMouse.getItemAmount() <= 999)
+                    {
+                        itemInSlot.setItemAmount(itemInSlot.getItemAmount() + itemOnMouse.getItemAmount());
+                        itemOnMouse = null;
+                        return;
+                    }
+                }
+            }else {
+                itemInSlot = itemOnMouse;
+                itemOnMouse = null;
+            }
+        }else
+        {
+            if(itemInSlot == null)
+                return;
+            itemOnMouse = itemInSlot;
             itemInSlot = null;
         }
     }

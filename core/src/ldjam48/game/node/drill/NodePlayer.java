@@ -58,7 +58,7 @@ public class NodePlayer extends NodeSprite {
         //super.sprite.setOrigin(32/2, 32/2);
         nodeTilemap = (NodeTilemap)MainGameScreen.scene.findNode("Tilemap");
         nodeBase = (NodeBase)MainGameScreen.scene.findNode("Base");
-        nodeBase.position.y = 191;
+        nodeBase.position.y = 192;
         baseMenu = (BaseMenu) MainGameScreen.gui.addNode(new BaseMenu());
         MainGameScreen.gui.addNode(this.furnaceMenu  = new FurnaceMenu());
         storageMenu = (StorageMenu) MainGameScreen.gui.addNode(new StorageMenu());
@@ -68,10 +68,10 @@ public class NodePlayer extends NodeSprite {
         nodeStorage = (NodeStorage) MainGameScreen.scene.addNode(new NodeStorage());
 
 
-        nodeUpgradeBase.position.y = 191;
+        nodeUpgradeBase.position.y = 192;
         nodeUpgradeBase.position.x = 190;
 
-        nodeStorage.position.y = 191;
+        nodeStorage.position.y = 192;
         nodeStorage.position.x = 425;
 
         drillSprites = new DrillSprites[4];
@@ -279,7 +279,11 @@ public class NodePlayer extends NodeSprite {
         camera.update();
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.F1)) {
-            drillLevel++;
+            if(drillLevel + 1 >= 5)
+            {
+                drillLevel = 1;
+            }else
+                drillLevel ++;
         }
         else if(Gdx.input.isKeyJustPressed(Input.Keys.F2)) {
             CoalStatus.coalLevel = 100000;
