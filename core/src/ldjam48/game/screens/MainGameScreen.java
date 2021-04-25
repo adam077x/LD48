@@ -16,9 +16,15 @@ import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.node.*;
 import ldjam48.game.node.drill.NodePlayer;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class MainGameScreen implements Screen {
+
+    public static HashMap<String, Object> statistics = new HashMap<>();
+
+
+
     Texture img;
     BitmapFont font = new BitmapFont();
 
@@ -48,6 +54,9 @@ public class MainGameScreen implements Screen {
         this.game = game;
         random = new Random();
         instance = this;
+        statistics.put("blocks_walked", 0);
+        statistics.put("time", "00:00");
+        statistics.put("blocks_mined",0);
     }
 
     @Override
@@ -150,6 +159,10 @@ public class MainGameScreen implements Screen {
     public void dispose() {
         img.dispose();
         font.dispose();
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     public static MainGameScreen getInstance() {

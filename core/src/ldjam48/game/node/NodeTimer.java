@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
+import ldjam48.game.screens.MainGameScreen;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,7 +20,7 @@ public class NodeTimer extends Node {
         super("Timer");
     }
 
-    private boolean counting = true;
+    public static boolean counting = true;
     private long current = System.currentTimeMillis();
     private long currentStart = System.currentTimeMillis();
     private long startMillies = 0;
@@ -41,7 +42,7 @@ public class NodeTimer extends Node {
         current = System.currentTimeMillis();
 
 
-
+        MainGameScreen.statistics.put("time", milliesToText(startMillies));
         font.draw(batch, "Time left:" +milliesToText(endMillies - startMillies), 21, Gdx.graphics.getHeight()-73);
 
 

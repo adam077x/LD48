@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import ldjam48.game.Game;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
 import ldjam48.game.gui.base.BaseMenu;
@@ -18,6 +19,7 @@ import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.items.Item;
 import ldjam48.game.node.*;
+import ldjam48.game.screens.MainEndScene;
 import ldjam48.game.screens.MainGameScreen;
 
 import java.util.ArrayList;
@@ -288,6 +290,9 @@ public class NodePlayer extends NodeSprite {
         else if(Gdx.input.isKeyJustPressed(Input.Keys.F2)) {
             CoalStatus.coalLevel = 100000;
             CoalStatus.maxCoalLevel = 100000;
+        }else if(Gdx.input.isKeyJustPressed(Input.Keys.F3))
+        {
+            MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
         }
     }
 
@@ -346,8 +351,14 @@ public class NodePlayer extends NodeSprite {
         }
     }
 
+    int blockMined = 0;
+    int blockWalked = 0;
+
     public void mine(float x, float y)
     {
+        blockWalked ++;
+        MainGameScreen.statistics.put("blocks_walked", blockWalked);
+
         int blockId = nodeTilemap.getTileByGlobalPosition(new Vector2(x, y));
         CoalStatus.coalLevel -- ;
         if(blockId == 0)
@@ -360,6 +371,8 @@ public class NodePlayer extends NodeSprite {
             return;
         }
 
+        blockMined ++;
+        MainGameScreen.statistics.put("blocks_mined", blockWalked);
 
 
 
