@@ -30,6 +30,5 @@ public class SlotNamed extends Slot implements NamedSlot {
         GlyphLayout glyphLayout = new GlyphLayout();
         glyphLayout.setText(font, name);
         font.draw(batch,name, position.x+height/2 - (glyphLayout.width/2), position.y + height+15);
-
     }
 }

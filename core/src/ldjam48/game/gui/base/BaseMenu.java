@@ -23,16 +23,16 @@ public class BaseMenu extends Gui {
 
         int x = Gdx.graphics.getWidth() / 2 - 250;
         int y = Gdx.graphics.getHeight() / 2 - 125;
-        final SlotNamed baseSlot = new SlotNamed(1,"Coal(10x)");
+        final SlotNamed baseSlot = new SlotNamed(1,"Coal(5x)");
         baseSlot.position = new Vector2(x  + 5+10+10, y + 5);
 
         fuelButton = new Button("Fuel", "Add Fuel", 128, 64, new ButtonEvent() {
             @Override
             public void onClick() {
-                if (baseSlot.getItemInSlot().getBlockType().getBlockId() == BlockType.Coal.getBlockId() && baseSlot.getItemInSlot().getItemAmount() >= 10) {
+                if (baseSlot.getItemInSlot().getBlockType().getBlockId() == BlockType.Coal.getBlockId() && baseSlot.getItemInSlot().getItemAmount() >= 5) {
                     CoalStatus.coalLevel += 100;
 
-                    baseSlot.getItemInSlot().setItemAmount(baseSlot.getItemInSlot().getItemAmount() - 10);
+                    baseSlot.getItemInSlot().setItemAmount(baseSlot.getItemInSlot().getItemAmount() - 5);
                     if (baseSlot.getItemInSlot().getItemAmount() <= 0) {
                         baseSlot.setItemInSlot(null);
                     }

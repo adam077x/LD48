@@ -67,6 +67,15 @@ public class NodeTilemap extends Node {
                     {
                         setTileByPosition(j, i, BlockType.Gold.getBlockId());
                     }
+
+                    if(r >= 90 && r < 93)
+                    {
+                        setTileByPosition(j, i, BlockType.Coal_Ore.getBlockId());
+                    }
+                    if(r >= 88 && r < 90)
+                    {
+                        setTileByPosition(j, i, BlockType.Iron.getBlockId());
+                    }
                 }
                 else if(i <= height-50 && i > height-100)
                 {
@@ -74,7 +83,7 @@ public class NodeTilemap extends Node {
 
                     int r = MainGameScreen.getInstance().random.nextInt(1000);
 
-                    if(r >= 995)
+                    if(r >= 990)
                     {
                         setTileByPosition(j, i, BlockType.Diamond_Ore.getBlockId());
                     }
@@ -85,6 +94,10 @@ public class NodeTilemap extends Node {
                     //int r2 = MainGameScreen.getInstance().random.nextInt(3);
 
                     setTileByPosition(j, i, BlockType.LavaBlackstone.getBlockId());
+
+                    if(r >= 99) {
+                        setTileByPosition(j, i, BlockType.MagmaBlock.getBlockId());
+                    }
                 }
             }
         }

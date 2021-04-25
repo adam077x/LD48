@@ -30,7 +30,9 @@ public class TextureManager {
     public static final Texture lavaBlackstone = new Texture("lavablackstone.png");
     public static final Texture diamondOre = new Texture("diamond_ore.png");
     public static final Texture diamond = new Texture("diamond.png");
-
+    public static final Texture mechanicalPart = new Texture("mechanical_part.png");
+    public static final Texture magmaBlock = new Texture("magma_block.png");
+    public static final Texture magmaIngot = new Texture("magma_ingot.png");
 
     public static final Texture drills = new Texture("drills.png");
     public static TextureRegion[][] drillRegion = TextureRegion.split(drills, 16, 16);

@@ -91,6 +91,12 @@ public class MainGameScreen implements Screen {
         scene.addNode(nodeBase);
         scene.addNode(nodeFurnace);
 
+        NodeRocketBase nodeRocketBase = new NodeRocketBase();
+        nodeRocketBase.position.y = 192;
+        nodeRocketBase.position.x = 25 * 32;
+
+        scene.addNode(nodeRocketBase);
+
         nodePlayer = new NodePlayer();
         nodePlayer.position.y = 192;
         nodePlayer.position.x = 16*32;
@@ -107,8 +113,6 @@ public class MainGameScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        System.out.println(Gdx.graphics.getFramesPerSecond());
-
         ScreenUtils.clear(0.8f, 0.8f, 1, 1);
 
         OrthographicCamera tmpCamera = nodePlayer.camera;

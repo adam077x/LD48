@@ -11,10 +11,7 @@ import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.Game;
 import ldjam48.game.TextureManager;
 import ldjam48.game.blocks.BlockType;
-import ldjam48.game.gui.base.BaseMenu;
-import ldjam48.game.gui.base.BaseUpgradeMenu;
-import ldjam48.game.gui.base.FurnaceMenu;
-import ldjam48.game.gui.base.StorageMenu;
+import ldjam48.game.gui.base.*;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
 import ldjam48.game.items.Item;
@@ -35,6 +32,8 @@ public class NodePlayer extends NodeSprite {
     private BaseUpgradeMenu baseUpgradeMenu;
     private NodeUpgradeBase nodeUpgradeBase;
     private NodeStorage nodeStorage;
+    private RocketMenu rocketMenu;
+    private NodeRocketBase nodeRocketBase;
 
     private static Sprite drillSprite;
 
@@ -59,6 +58,7 @@ public class NodePlayer extends NodeSprite {
 
         //super.sprite.setOrigin(32/2, 32/2);
         nodeTilemap = (NodeTilemap)MainGameScreen.scene.findNode("Tilemap");
+        nodeRocketBase = (NodeRocketBase)MainGameScreen.scene.findNode("Node Rocket Base");
         nodeBase = (NodeBase)MainGameScreen.scene.findNode("Base");
         nodeBase.position.y = 192;
         baseMenu = (BaseMenu) MainGameScreen.gui.addNode(new BaseMenu());
@@ -68,7 +68,7 @@ public class NodePlayer extends NodeSprite {
         baseUpgradeMenu = (BaseUpgradeMenu) MainGameScreen.gui.addNode(new BaseUpgradeMenu());
         nodeUpgradeBase = (NodeUpgradeBase) MainGameScreen.scene.addNode(new NodeUpgradeBase());
         nodeStorage = (NodeStorage) MainGameScreen.scene.addNode(new NodeStorage());
-
+        rocketMenu = (RocketMenu) MainGameScreen.gui.addNode(new RocketMenu());
 
         nodeUpgradeBase.position.y = 192;
         nodeUpgradeBase.position.x = 190;
@@ -102,11 +102,6 @@ public class NodePlayer extends NodeSprite {
 
         drillSprite = new Sprite(drillSprites[0].upSprites.get(0));
         drillSprite2 = new Sprite(drillSprites[0].sideSprites.get(0));
-
-
-
-
-
     }
 
     private Face face;
@@ -120,8 +115,6 @@ public class NodePlayer extends NodeSprite {
         if(animationDown > 0 || animationUp > 0 || animationLeft > 0 || animationRight > 0) return true;
         return false;
     }
-
-
 
     private BitmapFont font = new BitmapFont();
 
@@ -266,6 +259,7 @@ public class NodePlayer extends NodeSprite {
         showStorageMenu();
         showBaseUpgradeMenu();
         showFurnaceMenu();
+        showRocketMenu();
 
         camera.position.x = position.x - animationRight + animationLeft;
         camera.position.y = position.y + animationDown - animationUp;
@@ -306,6 +300,19 @@ public class NodePlayer extends NodeSprite {
         }
         else if(!nodeStorage.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !storageMenu.hidden){
             storageMenu.hidden = true;
+        }
+    }
+
+    private void showRocketMenu() {
+        if(nodeRocketBase.getRectangle().overlaps(getReactangle())) {
+            MainGameScreen.hiddenMenuHint = true;
+        }
+
+        if(nodeRocketBase.getRectangle().overlaps(getReactangle()) && Gdx.input.isKeyJustPressed(Input.Keys.E) && rocketMenu.hidden) {
+            rocketMenu.hidden = false;
+        }
+        else if(!nodeRocketBase.getRectangle().overlaps(getReactangle()) || Gdx.input.isKeyJustPressed(Input.Keys.E) && !rocketMenu.hidden){
+            rocketMenu.hidden = true;
         }
     }
 
@@ -365,9 +372,10 @@ public class NodePlayer extends NodeSprite {
             return;
         else if(blockId == BlockType.Bedrock.getBlockId())
             return;
-        if(CoalStatus.coalLevel == 0)
+        if(CoalStatus.coalLevel <= 0)
         {
-            GameOver.hidden = false;
+            MainGameScreen.getInstance().getGame().setScreen(new MainEndScene());
+            //GameOver.hidden = false;
             return;
         }
 

@@ -74,7 +74,6 @@ public class Inventory extends Gui {
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
 
-        batch.draw(TextureManager.arrow, Gdx.graphics.getWidth() - (tileSize * 2), (150+(tileSize+5)*9)/2 + 16);
-
+        //batch.draw(TextureManager.arrow, Gdx.graphics.getWidth() - (tileSize * 2), (150+(tileSize+5)*9)/2 + 16);
     }
 }

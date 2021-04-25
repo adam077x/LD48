@@ -87,10 +87,10 @@ public class BaseUpgradeMenu extends Gui {
             @Override
             public void onClick() {
                 if(slot2.getItemInSlot() != null) {
-                    if (slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot2.getItemInSlot().getItemAmount() >= 10) {
+                    if (slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot2.getItemInSlot().getItemAmount() >= 5) {
                         CoalStatus.maxCoalLevel += 100;
 
-                        slot2.getItemInSlot().setItemAmount(slot2.getItemInSlot().getItemAmount() - 10);
+                        slot2.getItemInSlot().setItemAmount(slot2.getItemInSlot().getItemAmount() - 5);
                         if(slot2.getItemInSlot().getItemAmount() <= 0) {
                             slot2.setItemInSlot(null);
                         }
@@ -103,7 +103,7 @@ public class BaseUpgradeMenu extends Gui {
         upgradeFuelStorage.position.y = Gdx.graphics.getHeight() / 2 - 30;
         addNode(upgradeFuelStorage);
 
-        slot2 = new SlotNamed(1, "Irons (10x)");
+        slot2 = new SlotNamed(1, "Irons (5x)");
         slot2.position.x = Gdx.graphics.getWidth() / 2 - 220;
         slot2.position.y = Gdx.graphics.getHeight() / 2 - 15;
         addNode(slot2);
