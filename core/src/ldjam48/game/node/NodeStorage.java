@@ -8,7 +8,7 @@ import ldjam48.game.TextureManager;
 
 public class NodeStorage extends NodeSprite{
     public NodeStorage() {
-        super("Storage", TextureManager.storage, 128, 64);
+        super("Storage", TextureManager.storage, 192, 96);
     }
 
     @Override

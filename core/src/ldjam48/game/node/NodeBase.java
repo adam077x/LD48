@@ -7,7 +7,7 @@ import ldjam48.game.TextureManager;
 
 public class NodeBase extends NodeSprite {
     public NodeBase() {
-        super("Base", TextureManager.factory, 156, 128);
+        super("Base", TextureManager.factory, 234, 192);
     }
 
     @Override

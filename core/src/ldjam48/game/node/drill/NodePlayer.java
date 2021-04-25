@@ -71,7 +71,7 @@ public class NodePlayer extends NodeSprite {
         rocketMenu = (RocketMenu) MainGameScreen.gui.addNode(new RocketMenu());
 
         nodeUpgradeBase.position.y = 192;
-        nodeUpgradeBase.position.x = 190;
+        nodeUpgradeBase.position.x = 280;
 
         nodeStorage.position.y = 192;
         nodeStorage.position.x = 425;
