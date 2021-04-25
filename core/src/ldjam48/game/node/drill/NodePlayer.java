@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.*;
-import com.badlogic.gdx.graphics.g3d.particles.emitters.Emitter;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import ldjam48.game.Game;
@@ -44,10 +43,10 @@ public class NodePlayer extends NodeSprite {
         return new Rectangle(position.x, position.y, img.getWidth(), img.getHeight());
     }
 
+    public static boolean stop = false;
     public static int drillLevel = 1;
 
     private ParticleEffect particleEffect = new ParticleEffect();
-
     public NodePlayer() {
         super("Player", TextureManager.playerBase, 32, 32);
         camera = new OrthographicCamera(640, 480);
@@ -85,7 +84,6 @@ public class NodePlayer extends NodeSprite {
 
         particleEffect.load(Gdx.files.internal("particles/block_break"), Gdx.files.internal(""));
         particleEffect.start();
-
 
         for(int i = 0; i < 4; i++)
         {
@@ -148,8 +146,10 @@ public class NodePlayer extends NodeSprite {
                 sprite ++;
         }
         //super.update(batch, delta);
+        if(!stop) {
         particleEffect.update(delta);
         particleEffect.draw(batch);
+
         batch.draw(img, position.x + animationLeft - animationRight, position.y + animationDown - animationUp, 32, 32);
 
         MainGameScreen.upgradeDrill = false;
@@ -165,6 +165,7 @@ public class NodePlayer extends NodeSprite {
         }
         else {
             batch.draw(drillSprite2, position.x + 32 - animationRight, position.y, 32, 32);
+        }
         }
         if(CoalStatus.coalLevel != 0)
         {
@@ -259,6 +260,13 @@ public class NodePlayer extends NodeSprite {
             animationRight = 0;
         }
 
+        if(stop) {
+            MainGameScreen.hiddenMenuHint = true;
+            furnaceMenu.hidden = true;
+            storageMenu.hidden = true;
+            rocketMenu.hidden = true;
+            return;
+        }
         MainGameScreen.hiddenMenuHint = false;
         showBaseMenu();
         showStorageMenu();
@@ -387,8 +395,6 @@ public class NodePlayer extends NodeSprite {
             //GameOver.hidden = false;
             return;
         }
-
-
         for(ParticleEmitter emitter : particleEffect.getEmitters())
         {
             emitter.setPosition(x+16,y+16);

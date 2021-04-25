@@ -4,9 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import jdk.jfr.internal.tool.Main;
 import ldjam48.game.gui.game.GameOver;
 import ldjam48.game.gui.statusbars.CoalStatus;
+import ldjam48.game.node.drill.NodePlayer;
 import ldjam48.game.screens.MainGameScreen;
+import ldjam48.game.screens.MainMenuScreen;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +32,8 @@ public class NodeTimer extends Node {
     @Override
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
+
+        if(NodePlayer.stop) return;
 
         if(System.currentTimeMillis() >=  currentStart + endMillies)
         {

@@ -27,7 +27,8 @@ public enum BlockType {
     SilverIngot(20, "Silver Ingot", new BlockMeta(false, false, TextureManager.silver_ingot,0)),
     MechanicalPart(21, "Mechanical Part", new BlockMeta(false, false, TextureManager.mechanicalPart,0)),
     MagmaBlock(22, "Magma Block", new BlockMeta(false, false, TextureManager.magmaBlock,3)),
-    MagmaIngot(23, "Magma Ingot", new BlockMeta(false, false, TextureManager.magmaIngot,3));
+    MagmaIngot(23, "Magma Ingot", new BlockMeta(false, false, TextureManager.magmaIngot,3)),
+    MetalParts(24, "Metal Parts", new BlockMeta(false, false, TextureManager.metalParts,3));
 
     private int blockId;
     private String blockName;

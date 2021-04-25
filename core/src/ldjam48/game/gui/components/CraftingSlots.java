@@ -17,7 +17,7 @@ public class CraftingSlots extends GuiComponent {
 
     private OneWaySlot outputSlot;
 
-
+    public Button button;
 
     public static class Recipe {
         public int[][] blockIds = new int[3][3];
@@ -61,7 +61,7 @@ public class CraftingSlots extends GuiComponent {
 
         parent.addNode(outputSlot);
 
-        Button button = new Button("Crafting Button", craftText, 156, 32, new ButtonEvent() {
+        button = new Button("Crafting Button", craftText, 180, 32, new ButtonEvent() {
             @Override
             public void onClick() {
                 craft();

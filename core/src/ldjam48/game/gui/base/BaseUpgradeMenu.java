@@ -48,7 +48,7 @@ public class BaseUpgradeMenu extends Gui {
             slot1.name = "Diamond (16x)";
         }
 
-        upgrade = new Button("upgrade", "Upgrade Drill", 128, 64, new ButtonEvent() {
+        upgrade = new Button("upgrade", "Upgrade Drill", 170, 64, new ButtonEvent() {
             @Override
             public void onClick() {
                 if(slot1.getItemInSlot() != null) {
@@ -78,12 +78,11 @@ public class BaseUpgradeMenu extends Gui {
                 }
             }
         });
-
         upgrade.position.x = Gdx.graphics.getWidth() / 2 - 150;
         upgrade.position.y = Gdx.graphics.getHeight() / 2 + 50;
         addNode(upgrade);
 
-        upgradeFuelStorage = new Button("upgrade", "Upgrade fuel storage", 128, 64, new ButtonEvent() {
+        upgradeFuelStorage = new Button("upgrade", "Upgrade fuel storage", 170, 64, new ButtonEvent() {
             @Override
             public void onClick() {
                 if(slot2.getItemInSlot() != null) {
@@ -98,6 +97,8 @@ public class BaseUpgradeMenu extends Gui {
                 }
             }
         });
+
+        upgradeFuelStorage.offset = 3;
 
         upgradeFuelStorage.position.x = Gdx.graphics.getWidth() / 2 - 150;
         upgradeFuelStorage.position.y = Gdx.graphics.getHeight() / 2 - 30;
