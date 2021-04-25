@@ -29,6 +29,10 @@ public class BaseMenu extends Gui {
         fuelButton = new Button("Fuel", "Add Fuel", 128, 64, new ButtonEvent() {
             @Override
             public void onClick() {
+                if(baseSlot.getItemInSlot() == null)
+                    return;
+                if(CoalStatus.coalLevel == 500)
+                    return;
                 if (baseSlot.getItemInSlot().getBlockType().getBlockId() == BlockType.Coal.getBlockId() && baseSlot.getItemInSlot().getItemAmount() >= 5) {
                     CoalStatus.coalLevel += 100;
 

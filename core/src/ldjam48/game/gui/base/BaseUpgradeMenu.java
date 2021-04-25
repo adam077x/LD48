@@ -86,7 +86,7 @@ public class BaseUpgradeMenu extends Gui {
             @Override
             public void onClick() {
                 if(slot2.getItemInSlot() != null) {
-                    if (slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.Sandiron.getBlockId() && slot2.getItemInSlot().getItemAmount() >= 5) {
+                    if (slot2.getItemInSlot().getBlockType().getBlockId() == BlockType.IronIngot.getBlockId() && slot2.getItemInSlot().getItemAmount() >= 5) {
                         CoalStatus.maxCoalLevel += 100;
 
                         slot2.getItemInSlot().setItemAmount(slot2.getItemInSlot().getItemAmount() - 5);

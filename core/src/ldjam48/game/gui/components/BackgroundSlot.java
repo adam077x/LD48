@@ -20,6 +20,7 @@ public class BackgroundSlot extends Slot {
         this.backgroundTexture = backgroundTexture;
     }
 
+
     @Override
     public void update(SpriteBatch batch, float delta) {
         super.update(batch, delta);
@@ -29,9 +30,11 @@ public class BackgroundSlot extends Slot {
         batch.setColor(Color.WHITE);
 
         font.setColor(new Color(1, 0, 0, 0.5f));
-        if(numberOfItems != 0) {
-            font.draw(batch, String.valueOf(numberOfItems), position.x, position.y);
-        }
+
+        if(itemInSlot == null)
+            if(numberOfItems != 0) {
+                font.draw(batch, String.valueOf(numberOfItems), position.x, position.y);
+            }
         font.setColor(Color.WHITE);
     }
 }
